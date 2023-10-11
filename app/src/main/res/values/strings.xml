@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ekohort-android</string>
+    <string name="ondboarding_image">ondboarding_image</string>
+    <string name="welcome">Welcome</string>
+    <string name="onboarding_text1">Get a realtime result for people health\'s monitoring</string>
+    <string name="btn_next">Next</string>
+    <string name="button_ghost_btn">Button</string>
+    <string name="get_started">Get Started</string>
+    <string name="welcome_image">welcome_image</string>
+    <string name="get_started2">Get Started</string>
+    <string name="onboardin_textview2">Get a result about people’s health real time in one app</string>
+    <string name="get_started_btn">Get Started</string>
+    <string name="logo_app">logo_app</string>
+    <string name="ekohort_mobile">Ekohort Mobile</string>
+</resources>
