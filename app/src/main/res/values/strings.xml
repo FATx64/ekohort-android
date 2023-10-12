@@ -21,4 +21,8 @@
     <string name="or">Or</string>
     <string name="register_now">Register Now</string>
     <string name="dont_have_account">Dont have account?</string>
+    <string name="register">Register</string>
+    <string name="register_with_google">Register with Google</string>
+    <string name="already_have_account">Already have account?</string>
+    <string name="login_now">Login Now</string>
 </resources>

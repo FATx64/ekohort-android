@@ -52,7 +52,7 @@ class EditTextPassword : AppCompatEditText, View.OnTouchListener{
                 if (s.toString().length < 8) context.getString(R.string.password_warning) //state when user do a thing shit
             }
 
-            override fun afterTextChanged(s: Editable?) {
+            override fun afterTextChanged(s: Editable) {
                 if (s.toString().length < 6 ) showError() //when the password got typed
             }
         })
