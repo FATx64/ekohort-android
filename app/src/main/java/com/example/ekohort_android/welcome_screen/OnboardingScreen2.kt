@@ -16,7 +16,7 @@ class OnboardingScreen2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingScreen2Binding.inflate(layoutInflater)
-        setContentView(R.layout.activity_onboarding_screen2)
+        setContentView(binding.root)
 
         binding.apply {
             btnGetStarted.setOnClickListener {

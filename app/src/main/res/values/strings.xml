@@ -12,4 +12,13 @@
     <string name="get_started_btn">Get Started</string>
     <string name="logo_app">logo_app</string>
     <string name="ekohort_mobile">Ekohort Mobile</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="password_warning">Password must be at least 8 characters</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="login_with_google">login with google</string>
+    <string name="or">Or</string>
+    <string name="register_now">Register Now</string>
+    <string name="dont_have_account">Dont have account?</string>
 </resources>
