@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "550281026161",
+    "firebase_url": "https://ekohort-data-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ekohort-data",
+    "storage_bucket": "ekohort-data.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550281026161:android:3da48e931d53012abbd9d0",
+        "android_client_info": {
+          "package_name": "com.example.ekohort_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC21_ctOAN4uDI6-CPydgd45g6YIfqzVHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "550281026161-9pml584gfk77obdulbalt8uhppc9cro5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ekohortApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550281026161:android:c2994d7062e9a7c8bbd9d0",
+        "android_client_info": {
+          "package_name": "com.example.ekohort_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC21_ctOAN4uDI6-CPydgd45g6YIfqzVHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "550281026161-9pml584gfk77obdulbalt8uhppc9cro5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ekohortApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
