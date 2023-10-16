@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.ekohort_android.R
@@ -26,10 +27,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var binding : ActivityLoginBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.apply {
             btnLinkRegister.setOnClickListener {
@@ -39,6 +43,10 @@ class LoginActivity : AppCompatActivity() {
             buttonLoginWithGoogle.setOnClickListener {
                 signIn()
             }
+            buttonLogin.setOnClickListener{
+                login()
+            }
+
         }
 
         val gso = GoogleSignInOptions
@@ -50,10 +58,31 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         auth = Firebase.auth
+        //auth = FirebaseAuth.getInstance()
 
 
     }
 
+    private fun login(){
+        val email = binding.emailEditText.text.toString().trim()
+        val password = binding.passwordEditText.text.toString().trim()
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener (this){
+                task ->
+                if (task.isSuccessful){
+                    Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show()
+
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else{
+                    Toast.makeText(this, "Login Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    //login with google
     private fun signIn(){
         val signInIntent = googleSignInClient.signInIntent
         resultLauncher.launch(signInIntent)
