@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_popup"
+        android:layout_width="281dp"
+        android:layout_height="282dp"
+        android:layout_marginTop="104dp"
+        android:src="@drawable/pop_up"
+        android:contentDescription="@string/pop_up_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_heading_popup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/your_account_has_been_created"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/font_disable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_popup" />
+
+    <TextView
+        android:id="@+id/text_popup"
+        android:layout_width="292dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/pop_up_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_heading_popup" />
+
+    <Button
+        android:id="@+id/button_login_now"
+        android:layout_width="264dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_popup" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,4 +25,9 @@
     <string name="register_with_google">Register with Google</string>
     <string name="already_have_account">Already have account?</string>
     <string name="login_now">Login Now</string>
+    <string name="pop_up_image">pop up image</string>
+    <string name="your_account_has_been_created">Your Account Has Been Created</string>
+    <string name="pop_up_text">To log in into your account use the email and password that you already registered</string>
+    <string name="logout">logout</string>
+    <string name="avatar_circle">avatar circle</string>
 </resources>

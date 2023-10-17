@@ -1,10 +1,15 @@
 package com.example.ekohort_android.auth
 
+import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.ekohort_android.R
 import com.google.firebase.auth.FirebaseAuth
@@ -40,7 +45,8 @@ class RegisterActivity : AppCompatActivity() {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {task ->
                     if (task.isSuccessful){
-                        Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                        registrationPopup()
 
                         firebaseAuth.currentUser?.updateProfile(
                             UserProfileChangeRequest.Builder()
@@ -49,7 +55,12 @@ class RegisterActivity : AppCompatActivity() {
                         )
 
                         // Finish the registration activity, and go to login page
+                        /*
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
                         finish()
+                         */
+
                     }else{
                         Toast.makeText(
                             this,
@@ -61,6 +72,27 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
         }
+
+    }
+
+    private fun registrationPopup(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.custom_pop_up)
+
+        val successImageView = dialog.findViewById<ImageView>(R.id.image_popup)
+        val succesHeadingMessageTextView = dialog.findViewById<TextView>(R.id.text_heading_popup)
+        val successMessageTextView = dialog.findViewById<TextView>(R.id.text_popup)
+        val loginButton = dialog.findViewById<Button>(R.id.button_login_now)
+
+        loginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            //dialog.dismiss()
+        }
+
+        dialog.show()
+
     }
 
 

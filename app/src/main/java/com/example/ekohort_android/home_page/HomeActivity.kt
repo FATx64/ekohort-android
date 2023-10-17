@@ -57,9 +57,10 @@ class HomeActivity : AppCompatActivity() {
         val user = auth.currentUser
         val auth = Firebase.auth
 
+        //showing username
         if (user != null){
             val userName = user.displayName
-            textView.text = "Welcome" + userName
+            textView.text =  userName
         } else{
             //do nothing
         }
