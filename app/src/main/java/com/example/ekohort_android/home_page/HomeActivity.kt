@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.example.ekohort_android.R
 import com.example.ekohort_android.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
+import com.example.ekohort_android.utils.DateUtils
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -25,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private lateinit var binding: ActivityHomeBinding
+    private val dateUtils = DateUtils()
 
 
     @SuppressLint("SetTextI18n")
@@ -64,6 +66,10 @@ class HomeActivity : AppCompatActivity() {
         } else{
             //do nothing
         }
+
+        //showing current date and day beside username
+        val currentDate = dateUtils.getCurrentDate()
+        binding.dateTextView.text = currentDate
     }
 
 

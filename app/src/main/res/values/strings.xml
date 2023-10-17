@@ -30,4 +30,5 @@
     <string name="pop_up_text">To log in into your account use the email and password that you already registered</string>
     <string name="logout">logout</string>
     <string name="avatar_circle">avatar circle</string>
+    <string name="today_s_date">Today\'s Date</string>
 </resources>
