@@ -31,4 +31,9 @@
     <string name="logout">logout</string>
     <string name="avatar_circle">avatar circle</string>
     <string name="today_s_date">Today\'s Date</string>
+    <string name="icon_menu_anak">icon_menu_anak</string>
+    <string name="data_pelayanan">Data Pelayanan</string>
+    <string name="ic_ibu">ic_ibu</string>
+    <string name="ibu">Ibu</string>
+    <string name="anak">Anak</string>
 </resources>

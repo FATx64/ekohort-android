@@ -13,6 +13,7 @@
         android:layout_width="241dp"
         android:layout_height="263dp"
         android:layout_marginTop="4dp"
+        android:contentDescription="@string/logo_app"
         android:src="@drawable/logo_ekohort"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.432"
@@ -23,7 +24,8 @@
         android:id="@+id/text_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
+        android:textSize="17sp"
         android:paddingTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +74,7 @@
         app:layout_constraintVertical_bias="0.257"
         app:startIconDrawable="@drawable/baseline_lock_24">
 
-        <com.example.ekohort_android.custom_ui.EditTextPassword
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

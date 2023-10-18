@@ -45,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {task ->
                     if (task.isSuccessful){
-                        //Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                        //showing pop up to login page
                         registrationPopup()
 
                         firebaseAuth.currentUser?.updateProfile(
@@ -53,13 +53,6 @@ class RegisterActivity : AppCompatActivity() {
                                 .setDisplayName(username)
                                 .build()
                         )
-
-                        // Finish the registration activity, and go to login page
-                        /*
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                         */
 
                     }else{
                         Toast.makeText(
