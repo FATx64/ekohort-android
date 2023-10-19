@@ -1,14 +1,16 @@
 package com.example.ekohort_android.home_page
 
+import CarouselAdapter
 import android.annotation.SuppressLint
-import android.content.ContentProviderClient
 import android.content.Intent
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Button
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
 import com.example.ekohort_android.R
 import com.example.ekohort_android.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
@@ -42,6 +44,14 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+
+        loginWithGoogle()
+        showUserName()
+        carouselAdapter()
+
+    }
+
+    private fun loginWithGoogle(){
         auth = FirebaseAuth.getInstance()
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -66,8 +76,32 @@ class HomeActivity : AppCompatActivity() {
         } else{
             //do nothing
         }
+    }
 
-        //showing current date and day beside username
+    private fun carouselAdapter(){
+        val viewPager = findViewById<ViewPager2>(R.id.viewPager2)
+
+        viewPager.apply {
+            clipChildren = false
+            clipToPadding = false
+            offscreenPageLimit = 3
+            (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        }
+
+        val demoData = arrayListOf(
+            "Data ibu : Jumlah Data",
+            "Data anak : Jumlah data",
+            "Data lansia: Jumlah Data"
+        )
+        viewPager.adapter = CarouselAdapter(demoData)
+
+        val compositePageTransformer = CompositePageTransformer()
+        compositePageTransformer.addTransformer(MarginPageTransformer((40 * Resources.getSystem().displayMetrics.density).toInt()))
+        viewPager.setPageTransformer(compositePageTransformer)
+    }
+
+
+    private fun showUserName(){
         val currentDate = dateUtils.getCurrentDate()
         binding.dateTextView.text = currentDate
     }

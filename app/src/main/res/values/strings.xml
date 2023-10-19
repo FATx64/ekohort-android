@@ -36,4 +36,6 @@
     <string name="ic_ibu">ic_ibu</string>
     <string name="ibu">Ibu</string>
     <string name="anak">Anak</string>
+    <string name="data_statistik">Data Statistik</string>
+    <string name="icon_card">icon_card</string>
 </resources>
