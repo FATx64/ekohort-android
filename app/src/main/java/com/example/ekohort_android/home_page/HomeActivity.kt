@@ -3,17 +3,22 @@ package com.example.ekohort_android.home_page
 import CarouselAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.Configuration
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ekohort_android.R
+import com.example.ekohort_android.adapter.BlogAdapter
 import com.example.ekohort_android.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
+import com.example.ekohort_android.model.BlogModel
 import com.example.ekohort_android.utils.DateUtils
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -29,6 +34,9 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private val dateUtils = DateUtils()
+
+    private lateinit var rvBlog: RecyclerView
+    private val list = ArrayList<BlogModel>()
 
 
     @SuppressLint("SetTextI18n")
@@ -48,6 +56,11 @@ class HomeActivity : AppCompatActivity() {
         loginWithGoogle()
         showUserName()
         carouselAdapter()
+
+        rvBlog = findViewById(R.id.rv_blog)
+        rvBlog.setHasFixedSize(true)
+        shoRecyclerList()
+        list.addAll(blogList)
 
     }
 
@@ -99,6 +112,30 @@ class HomeActivity : AppCompatActivity() {
         compositePageTransformer.addTransformer(MarginPageTransformer((40 * Resources.getSystem().displayMetrics.density).toInt()))
         viewPager.setPageTransformer(compositePageTransformer)
     }
+
+    private fun shoRecyclerList(){
+        if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            rvBlog.layoutManager = GridLayoutManager(this, 2)
+        } else{
+            rvBlog.layoutManager = LinearLayoutManager(this)
+        }
+        val blogAdapter = BlogAdapter(list)
+        rvBlog.adapter = blogAdapter
+    }
+
+    private val blogList: ArrayList<BlogModel>
+        get() {
+            val dataTitle = resources.getStringArray(R.array.title_blog)
+            val dataDescription = resources.getStringArray(R.array.description_blog)
+            val dataPhoto = resources.getStringArray(R.array.photo_blog)
+            val dataDate = resources.getStringArray(R.array.date_blog)
+            val listBlog = ArrayList<BlogModel>()
+            for (i in dataTitle.indices){
+                val blog = BlogModel(dataTitle[i], dataDescription[i], dataPhoto[i],dataDate[i])
+                listBlog.add(blog)
+            }
+            return listBlog
+        }
 
 
     private fun showUserName(){
