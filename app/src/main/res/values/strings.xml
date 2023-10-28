@@ -40,6 +40,14 @@
     <string name="icon_card">icon_card</string>
     <string name="photo_of_blog">photo of blog</string>
     <string name="artikel">Artikel</string>
+    <string name="kader_kesehatan">Kader Kesehatan</string>
+    <string name="lansia">Lansia</string>
+    <string name="icon_lansia">icon lansia</string>
+    <string name="icon_kader">icon kader</string>
+    <string name="icon_ibu">icon ibu</string>
+    <string name="data_pelayanan_ibu">Data Pelayanan Ibu</string>
+    <string name="list_ibu_hamil">List Ibu Hamil</string>
+    <string name="tambah_data">+ Tambah Data</string>
 
     <!-- resources blog (title, picture, description, date) -->
 

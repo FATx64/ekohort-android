@@ -1,5 +1,4 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,12 +53,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/ic_anak" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/ic_ibu"
                 android:layout_width="48dp"
                 android:layout_height="52dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_mother"
+                android:contentDescription="@string/icon_ibu"
                 app:layout_constraintStart_toEndOf="@+id/ic_anak"
                 app:layout_constraintTop_toBottomOf="@+id/textview_data_pelayanan" />
 
@@ -71,18 +71,19 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/ibu"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/ic_ibu" />
 
             <!-- Lansia -->
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/ic_lansia"
                 android:layout_width="55dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_lansia"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                android:contentDescription="@string/icon_lansia"
+                app:layout_constraintStart_toEndOf="@+id/ic_ibu"
                 app:layout_constraintTop_toBottomOf="@+id/textview_data_pelayanan" />
 
 
@@ -91,19 +92,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="8dp"
-                android:text="Lansia"
+                android:text="@string/lansia"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/ic_lansia" />
 
             <!-- kader -->
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/ic_kader"
                 android:layout_width="45dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_doctor"
+                android:contentDescription="@string/icon_kader"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -112,10 +114,10 @@
                 android:layout_height="39dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="12dp"
-                android:text="Kader Kesehatan"
+                android:text="@string/kader_kesehatan"
                 android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toBottomOf="@+id/ic_kader" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,8 +5,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,7 @@ import com.example.ekohort_android.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
 import com.example.ekohort_android.model.BlogModel
 import com.example.ekohort_android.utils.DateUtils
+import com.example.ekohort_android.view.data_pelayanan.ibu.ListIbuActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -50,12 +53,14 @@ class HomeActivity : AppCompatActivity() {
             logoutButton.setOnClickListener {
                 signOut()
             }
+
         }
 
 
         loginWithGoogle()
         showUserName()
         carouselAdapter()
+        menuOnCard()
 
         rvBlog = findViewById(R.id.rv_blog)
         rvBlog.setHasFixedSize(true)
@@ -89,6 +94,17 @@ class HomeActivity : AppCompatActivity() {
         } else{
             //do nothing
         }
+    }
+
+    //daftar menu yang di card
+    private fun menuOnCard(){
+
+        val icDataIbu = binding.layoutMenu.icIbu
+        icDataIbu.setOnClickListener {
+            val intent = Intent(this, ListIbuActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun carouselAdapter(){
