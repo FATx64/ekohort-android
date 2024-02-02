@@ -4,9 +4,13 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Toast
 import com.example.ekohort_android.R
 import com.example.ekohort_android.databinding.ActivityDataIbuAwalBinding
+import com.example.ekohort_android.utils.ProvinceList
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -31,6 +35,7 @@ class DataIbuAwal : AppCompatActivity() {
                 showDatePickerDialog()
             }
         }
+        spinnerProvince()
 
 
     }
@@ -52,6 +57,30 @@ class DataIbuAwal : AppCompatActivity() {
         }, year, month, day)
         datePickerDialog.show()
     }
+
+
+    private fun spinnerProvince(){
+        val provinceList = resources.getStringArray(R.array.provinsi_array)
+
+        val spinner = binding.provinceSpinner
+        if (spinner != null){
+            val adapter = ArrayAdapter(this,
+                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, provinceList)
+            spinner.adapter = adapter
+
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>, view: View, position: Int, id: Long) {
+                    Toast.makeText(this@DataIbuAwal, getString(R.string.selected_item) + "" + "" + provinceList[position],Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    TODO("Not yet implemented")
+                }
+            }
+        }
+    }
+
+
 
 
 }

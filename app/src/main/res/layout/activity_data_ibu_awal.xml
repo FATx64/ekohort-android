@@ -186,6 +186,37 @@
                 android:focusable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tv_tempat_tinggal_sekarang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alamat_tempat_tinggal_sekarang"
+            android:layout_margin="20dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/dateOfBirthTextLayout"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_provinsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/provinsi"
+            android:layout_margin="20dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tempat_tinggal_sekarang"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/provinceSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12sp"
+            android:prompt="@id/tv_provinsi"
+            app:layout_constraintTop_toBottomOf="@id/tv_provinsi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         
 
 

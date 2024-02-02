@@ -80,14 +80,51 @@
         <item>Data Ibu</item>
         <item>Riwayat</item>
     </array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="data_ibu">Data ibu</string>
+
+    <string name="selected_item">Selected Item: </string>
+    <string name="data_ibu">data ibu\n</string>
     <string name="nama_ibu">Nama Ibu</string>
     <string name="nik">NIK</string>
-    <string name="nomor_kartu_keluarga">Nomor Kartu Keluarga</string>
+    <string name="nomor_kartu_keluarga">No KK</string>
     <string name="tanggal_lahir">Tanggal Lahir</string>
-    <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="alamat_tempat_tinggal_sekarang">Alamat Tempat tinggal</string>
+    <string name="provinsi">Provinsi</string>
+
+    <string-array name="provinsi_array">
+            <item>Aceh</item>
+            <item>Sumatera Utara</item>
+            <item>Sumatera Barat</item>
+            <item>Riau</item>
+            <item>Jambi</item>
+            <item>Bengkulu</item>
+            <item>Sumatera Selatan</item>
+            <item>Lampung</item>
+            <item>Bangka Belitung</item>
+            <item>Kepulauan Riau</item>
+            <item>DKI Jakarta</item>
+            <item>Jawa Barat</item>
+            <item>Jawa Tengah</item>
+            <item>Jawa Timur</item>
+            <item>Banten</item>
+            <item>Bali</item>
+            <item>Nusa Tenggara Barat</item>
+            <item>Nusa Tenggara Timur</item>
+            <item>Kalimantan Barat</item>
+            <item>Kalimantan Tengah</item>
+            <item>Kalimantan Selatan</item>
+            <item>Kalimantan Timur</item>
+            <item>Kalimantan Utara</item>
+            <item>Sulawesi Utara</item>
+            <item>Sulawesi Tengah</item>
+            <item>Sulawesi Selatan</item>
+            <item>Sulawesi Tenggara</item>
+            <item>Gorontalo</item>
+            <item>Maluku</item>
+            <item>Maluku Utara</item>
+            <item>Papua</item>
+            <item>Papua Barat</item>
+        </string-array>
 
 
 </resources>
