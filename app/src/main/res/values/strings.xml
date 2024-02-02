@@ -90,6 +90,11 @@
     <string name="dd_mm_yyyy">dd/mm/yyyy</string>
     <string name="alamat_tempat_tinggal_sekarang">Alamat Tempat tinggal</string>
     <string name="provinsi">Provinsi</string>
+    <string name="alamat">Alamat</string>
+    <string name="edt_alamat">Alamat</string>
+    <string name="data_riwayat_kesehatan">Data Riwayat Kesehatan</string>
+    <string name="tb_cm">TB (CM)</string>
+    <string name="tinggi_badan_cm">Tinggi Badan (CM)</string>
 
     <string-array name="provinsi_array">
             <item>Aceh</item>
