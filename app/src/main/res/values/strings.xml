@@ -48,6 +48,7 @@
     <string name="data_pelayanan_ibu">Data Pelayanan Ibu</string>
     <string name="list_ibu_hamil">List Ibu Hamil</string>
     <string name="tambah_data">+ Tambah Data</string>
+    <string name="tambah_data_ibu_baru">Tambah Data Ibu Baru</string>
 
     <!-- resources blog (title, picture, description, date) -->
 
@@ -74,6 +75,68 @@
         <item>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</item>
         <item>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</item>
     </string-array>
+
+    <array name="stepper_form_ibu">
+        <item>Data Ibu</item>
+        <item>Riwayat</item>
+    </array>
+
+    <string name="selected_item">Selected Item: </string>
+    <string name="data_ibu">data ibu\n</string>
+    <string name="nama_ibu">Nama Ibu</string>
+    <string name="nik">NIK</string>
+    <string name="nomor_kartu_keluarga">No KK</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="alamat_tempat_tinggal_sekarang">Alamat Tempat tinggal</string>
+    <string name="provinsi">Provinsi</string>
+    <string name="alamat">Alamat</string>
+    <string name="edt_alamat">Alamat</string>
+    <string name="data_riwayat_kesehatan">Data Riwayat Kesehatan</string>
+    <string name="tb_cm">TB (CM)</string>
+    <string name="tinggi_badan_cm">Tinggi Badan (CM)</string>
+    <string name="berat_badan_kg">Berat Badan (KG)</string>
+    <string name="bb_kg">BB (KG)</string>
+    <string name="diagnosa">Diagnosa</string>
+    <string name="tanggal_kunjungan">Tanggal Kunjungan</string>
+    <string name="tanggal_kunjungan_berikutnya">Tanggal Kunjungan Berikutnya</string>
+    <string name="nomor_hp_wa">Nomor HP/WA</string>
+    <string name="submit_data">Submit Data</string>
+
+    <string-array name="provinsi_array">
+            <item>Aceh</item>
+            <item>Sumatera Utara</item>
+            <item>Sumatera Barat</item>
+            <item>Riau</item>
+            <item>Jambi</item>
+            <item>Bengkulu</item>
+            <item>Sumatera Selatan</item>
+            <item>Lampung</item>
+            <item>Bangka Belitung</item>
+            <item>Kepulauan Riau</item>
+            <item>DKI Jakarta</item>
+            <item>Jawa Barat</item>
+            <item>Jawa Tengah</item>
+            <item>Jawa Timur</item>
+            <item>Banten</item>
+            <item>Bali</item>
+            <item>Nusa Tenggara Barat</item>
+            <item>Nusa Tenggara Timur</item>
+            <item>Kalimantan Barat</item>
+            <item>Kalimantan Tengah</item>
+            <item>Kalimantan Selatan</item>
+            <item>Kalimantan Timur</item>
+            <item>Kalimantan Utara</item>
+            <item>Sulawesi Utara</item>
+            <item>Sulawesi Tengah</item>
+            <item>Sulawesi Selatan</item>
+            <item>Sulawesi Tenggara</item>
+            <item>Gorontalo</item>
+            <item>Maluku</item>
+            <item>Maluku Utara</item>
+            <item>Papua</item>
+            <item>Papua Barat</item>
+        </string-array>
 
 
 </resources>

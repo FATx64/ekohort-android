@@ -60,4 +60,8 @@ dependencies {
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //stepper
+    //implementation("com.stepstone.stepper:material-stepper:4.3.1")
+
 }
