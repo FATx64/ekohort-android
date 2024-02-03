@@ -95,6 +95,13 @@
     <string name="data_riwayat_kesehatan">Data Riwayat Kesehatan</string>
     <string name="tb_cm">TB (CM)</string>
     <string name="tinggi_badan_cm">Tinggi Badan (CM)</string>
+    <string name="berat_badan_kg">Berat Badan (KG)</string>
+    <string name="bb_kg">BB (KG)</string>
+    <string name="diagnosa">Diagnosa</string>
+    <string name="tanggal_kunjungan">Tanggal Kunjungan</string>
+    <string name="tanggal_kunjungan_berikutnya">Tanggal Kunjungan Berikutnya</string>
+    <string name="nomor_hp_wa">Nomor HP/WA</string>
+    <string name="submit_data">Submit Data</string>
 
     <string-array name="provinsi_array">
             <item>Aceh</item>

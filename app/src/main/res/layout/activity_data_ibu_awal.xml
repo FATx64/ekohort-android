@@ -261,7 +261,7 @@
             android:id="@+id/tv_tb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tb_cm"
+            android:text="@string/tinggi_badan_cm"
             android:textSize="18sp"
             android:layout_margin="12dp"
             app:layout_constraintTop_toBottomOf="@id/tv_riwayat_kesehatan"
@@ -275,7 +275,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginTop="12dp"
-            android:hint="@string/tinggi_badan_cm"
+            android:hint="@string/tb_cm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_tb">
@@ -291,8 +291,184 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        
+        <TextView
+            android:id="@+id/tv_bb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/berat_badan_kg"
+            android:textSize="18sp"
+            android:layout_margin="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tbTextLayout"
+            app:layout_constraintStart_toStartOf="parent"/>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bbTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
+            android:hint="@string/bb_kg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bb">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_bb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                tools:ignore="SpeakableTextPresentCheck"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_diagnosa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diagnosa"
+            android:textSize="18sp"
+            android:layout_margin="12dp"
+            app:layout_constraintTop_toBottomOf="@id/bbTextLayout"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/diagnosaTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
+            android:hint="@string/diagnosa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_diagnosa">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_diagnosa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                tools:ignore="SpeakableTextPresentCheck"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_Tanggal_Kunjungan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanggal_kunjungan"
+            android:layout_margin="20dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diagnosaTextLayout"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tanggal_kunjungan_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
+            android:hint="@string/dd_mm_yyyy"
+            app:startIconDrawable="@drawable/ic_calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Tanggal_Kunjungan">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTanggalKunjungan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:clickable="true"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:focusable="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_Tanggal_Kunjungan_berikutnya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanggal_kunjungan_berikutnya"
+            android:layout_margin="20dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tanggal_kunjungan_layout"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tanggal_kunjungan_berikutnya"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
+            android:hint="@string/dd_mm_yyyy"
+            app:startIconDrawable="@drawable/ic_calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Tanggal_Kunjungan_berikutnya">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTanggalKunjunganBerikutnya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:clickable="true"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:focusable="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_WA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nomor_hp_wa"
+            android:textSize="18sp"
+            android:layout_margin="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tanggal_kunjungan_berikutnya"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/waEdtLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
+            android:hint="@string/nomor_hp_wa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_WA">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_wa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                tools:ignore="SpeakableTextPresentCheck"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_data"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/waEdtLayout"/>
 
 
 
