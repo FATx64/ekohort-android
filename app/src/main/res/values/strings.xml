@@ -102,41 +102,42 @@
     <string name="tanggal_kunjungan_berikutnya">Tanggal Kunjungan Berikutnya</string>
     <string name="nomor_hp_wa">Nomor HP/WA</string>
     <string name="submit_data">Submit Data</string>
+    <string name="user_avatar">User Avatar</string>
 
     <string-array name="provinsi_array">
-            <item>Aceh</item>
-            <item>Sumatera Utara</item>
-            <item>Sumatera Barat</item>
-            <item>Riau</item>
-            <item>Jambi</item>
-            <item>Bengkulu</item>
-            <item>Sumatera Selatan</item>
-            <item>Lampung</item>
-            <item>Bangka Belitung</item>
-            <item>Kepulauan Riau</item>
-            <item>DKI Jakarta</item>
-            <item>Jawa Barat</item>
-            <item>Jawa Tengah</item>
-            <item>Jawa Timur</item>
-            <item>Banten</item>
-            <item>Bali</item>
-            <item>Nusa Tenggara Barat</item>
-            <item>Nusa Tenggara Timur</item>
-            <item>Kalimantan Barat</item>
-            <item>Kalimantan Tengah</item>
-            <item>Kalimantan Selatan</item>
-            <item>Kalimantan Timur</item>
-            <item>Kalimantan Utara</item>
-            <item>Sulawesi Utara</item>
-            <item>Sulawesi Tengah</item>
-            <item>Sulawesi Selatan</item>
-            <item>Sulawesi Tenggara</item>
-            <item>Gorontalo</item>
-            <item>Maluku</item>
-            <item>Maluku Utara</item>
-            <item>Papua</item>
-            <item>Papua Barat</item>
-        </string-array>
+        <item>Aceh</item>
+        <item>Sumatera Utara</item>
+        <item>Sumatera Barat</item>
+        <item>Riau</item>
+        <item>Jambi</item>
+        <item>Bengkulu</item>
+        <item>Sumatera Selatan</item>
+        <item>Lampung</item>
+        <item>Bangka Belitung</item>
+        <item>Kepulauan Riau</item>
+        <item>DKI Jakarta</item>
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+        <item>Jawa Timur</item>
+        <item>Banten</item>
+        <item>Bali</item>
+        <item>Nusa Tenggara Barat</item>
+        <item>Nusa Tenggara Timur</item>
+        <item>Kalimantan Barat</item>
+        <item>Kalimantan Tengah</item>
+        <item>Kalimantan Selatan</item>
+        <item>Kalimantan Timur</item>
+        <item>Kalimantan Utara</item>
+        <item>Sulawesi Utara</item>
+        <item>Sulawesi Tengah</item>
+        <item>Sulawesi Selatan</item>
+        <item>Sulawesi Tenggara</item>
+        <item>Gorontalo</item>
+        <item>Maluku</item>
+        <item>Maluku Utara</item>
+        <item>Papua</item>
+        <item>Papua Barat</item>
+    </string-array>
 
 
 </resources>

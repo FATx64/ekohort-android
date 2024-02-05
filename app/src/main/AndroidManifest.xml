@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Ekohortandroid"
         tools:targetApi="31">
         <activity
+            android:name=".view.data_pelayanan.ibu.ListIbuViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".view.data_pelayanan.ibu.stepperform.IbuAddUpdateViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".view.data_pelayanan.ibu.stepperform.IbuUpdateDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.data_pelayanan.ibu.stepperform.DataIbuAwal"
             android:exported="false" />
         <activity
