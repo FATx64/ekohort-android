@@ -14,7 +14,6 @@ interface IbuDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(ibu: ibuDb)
 
-
     @Update
     fun update(ibu: ibuDb)
 

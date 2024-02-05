@@ -16,6 +16,9 @@ data class ibuDb (
     @ColumnInfo(name = "name")
     var name: String? = null,
 
+    @ColumnInfo(name = "nik")
+    var nik: Int? = null,
+
     @ColumnInfo(name = "address")
     var address: String? = null,
 
