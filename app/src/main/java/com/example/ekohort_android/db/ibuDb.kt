@@ -43,5 +43,6 @@ data class ibuDb (
     @ColumnInfo(name = "contact")
     var contact : String? = null
 
+
 ) : Parcelable
 
