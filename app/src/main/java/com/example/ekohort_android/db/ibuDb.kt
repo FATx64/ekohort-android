@@ -6,8 +6,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity
+@Entity(tableName = "ibuDb")
 @Parcelize
+
 data class ibuDb (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -45,7 +46,6 @@ data class ibuDb (
 
     @ColumnInfo(name = "contact")
     var contact : String? = null
-
 
 ) : Parcelable
 
