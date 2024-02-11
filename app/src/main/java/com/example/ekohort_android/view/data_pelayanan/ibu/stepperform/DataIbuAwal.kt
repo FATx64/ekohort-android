@@ -45,7 +45,7 @@ class DataIbuAwal : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{
+        val datePickerDialog = DatePickerDialog(this, {
             view, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
             calendar.set(Calendar.MONTH, month)
@@ -63,19 +63,17 @@ class DataIbuAwal : AppCompatActivity() {
         val provinceList = resources.getStringArray(R.array.provinsi_array)
 
         val spinner = binding.provinceSpinner
-        if (spinner != null){
-            val adapter = ArrayAdapter(this,
-                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, provinceList)
-            spinner.adapter = adapter
+        val adapter = ArrayAdapter(this,
+            androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, provinceList)
+        spinner.adapter = adapter
 
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>, view: View, position: Int, id: Long) {
-                    Toast.makeText(this@DataIbuAwal, getString(R.string.selected_item) + "" + "" + provinceList[position],Toast.LENGTH_SHORT).show()
-                }
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>, view: View, position: Int, id: Long) {
+                Toast.makeText(this@DataIbuAwal, getString(R.string.selected_item) + "" + "" + provinceList[position],Toast.LENGTH_SHORT).show()
+            }
 
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    TODO("Not yet implemented")
-                }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                TODO("Not yet implemented")
             }
         }
     }
