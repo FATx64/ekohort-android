@@ -11,7 +11,6 @@ import org.koin.android.ext.android.inject
 
 class MainActivity : Activity() {
     private val auth: FirebaseAuth by inject()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = if (savedInstanceState == null) installSplashScreen() else null
 

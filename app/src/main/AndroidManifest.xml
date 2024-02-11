@@ -19,7 +19,6 @@
             android:name=".view.data_pelayanan.ibu.detail.DetailIbuActivity"
             android:exported="false" />
         <activity
-<<<<<<< HEAD
             android:name=".presentation.ibu.form.DataIbuAwalActivity"
             android:exported="false" />
         <activity
@@ -38,23 +37,6 @@
             android:name=".presentation.auth.LoginActivity"
             android:exported="false" />
         <activity
-=======
-            android:name=".presentation.ibu.ListIbuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.blog.BlogActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.home.HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.auth.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.auth.LoginActivity"
-            android:exported="false" />
-        <activity
->>>>>>> 78a36ba (refactor: Restructure the project)
             android:name=".presentation.onboarding.OnboardingScreen1"
             android:exported="true" />
         <activity
@@ -62,10 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
-<<<<<<< HEAD
             android:theme="@style/Theme.SplashScreen"
-=======
->>>>>>> 78a36ba (refactor: Restructure the project)
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
