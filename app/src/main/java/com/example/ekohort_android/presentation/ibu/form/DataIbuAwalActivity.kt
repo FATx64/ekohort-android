@@ -1,7 +1,6 @@
 package com.example.ekohort_android.presentation.ibu.form
 
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -9,23 +8,20 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.ekohort_android.R
 import com.example.ekohort_android.databinding.ActivityDataIbuAwalBinding
+import com.example.ekohort_android.presentation.base.BaseActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class DataIbuAwal : AppCompatActivity() {
+class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
 
     private val calendar = Calendar.getInstance()
 
     private var dateOfBirth: Long = System.currentTimeMillis()
 
-
-    private lateinit var binding: ActivityDataIbuAwalBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        binding = ActivityDataIbuAwalBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding = ActivityDataIbuAwalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.apply {
@@ -67,7 +63,7 @@ class DataIbuAwal : AppCompatActivity() {
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>, view: View, position: Int, id: Long) {
-                Toast.makeText(this@DataIbuAwal, getString(R.string.selected_item) + "" + "" + provinceList[position],Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DataIbuAwalActivity, getString(R.string.selected_item) + "" + "" + provinceList[position],Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {

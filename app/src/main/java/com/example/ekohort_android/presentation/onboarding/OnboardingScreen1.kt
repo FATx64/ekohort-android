@@ -1,14 +1,12 @@
 package com.example.ekohort_android.presentation.onboarding
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityOnboardingScreen1Binding
+import com.example.ekohort_android.presentation.base.BaseActivity
 
-class OnboardingScreen1 : AppCompatActivity() {
-
-    private lateinit var binding: ActivityOnboardingScreen1Binding
+class OnboardingScreen1 : BaseActivity<ActivityOnboardingScreen1Binding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

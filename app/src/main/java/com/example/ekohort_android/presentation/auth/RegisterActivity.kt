@@ -2,43 +2,35 @@ package com.example.ekohort_android.presentation.auth
 
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.ekohort_android.R
+import com.example.ekohort_android.databinding.ActivityRegisterBinding
+import com.example.ekohort_android.presentation.base.BaseActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseActivity<ActivityRegisterBinding>() {
 
-    private lateinit var usernameEditText: EditText
-    private lateinit var emailEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var registerButton: Button
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
 
-        usernameEditText = findViewById(R.id.nameEditText)
-        emailEditText = findViewById(R.id.emailEditText)
-        passwordEditText = findViewById(R.id.passwordEditText)
-        registerButton = findViewById(R.id.button_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        registerButton.setOnClickListener {
+        binding.buttonRegister.setOnClickListener {
 
-            val username = usernameEditText.text.toString().trim()
-            val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+            val username = binding.nameEditText.text.toString().trim()
+            val email = binding.emailEditText.text.toString().trim()
+            val password = binding.passwordEditText.text.toString().trim()
 
             // Perform Firebase user Registration
 

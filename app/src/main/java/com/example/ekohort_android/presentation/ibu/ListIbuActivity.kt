@@ -1,14 +1,12 @@
 package com.example.ekohort_android.presentation.ibu
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ekohort_android.databinding.ActivityListIbuBinding
-import com.example.ekohort_android.presentation.ibu.form.DataIbuAwal
+import com.example.ekohort_android.presentation.base.BaseActivity
+import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
 
-class ListIbuActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityListIbuBinding
+class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityListIbuBinding.inflate(layoutInflater)
@@ -18,7 +16,7 @@ class ListIbuActivity : AppCompatActivity() {
 
         binding.apply {
             btnAddData.setOnClickListener {
-                val intent = Intent(this@ListIbuActivity, DataIbuAwal::class.java)
+                val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java)
                 startActivity(intent)
             }
         }

@@ -1,12 +1,14 @@
 package com.example.ekohort_android.presentation.blog
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ekohort_android.R
+import com.example.ekohort_android.databinding.ActivityBlogBinding
+import com.example.ekohort_android.presentation.base.BaseActivity
 
-class BlogActivity : AppCompatActivity() {
+class BlogActivity : BaseActivity<ActivityBlogBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_blog)
+
+        binding = ActivityBlogBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

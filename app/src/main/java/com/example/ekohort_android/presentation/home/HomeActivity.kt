@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,6 +17,7 @@ import com.example.ekohort_android.presentation.blog.BlogAdapter
 import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
 import com.example.ekohort_android.data.model.BlogModel
+import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.utils.DateUtils
 import com.example.ekohort_android.presentation.ibu.ListIbuActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -27,12 +27,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     private lateinit var googleSigningClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
 
-    private lateinit var binding: ActivityHomeBinding
     private val dateUtils = DateUtils()
 
     private lateinit var rvBlog: RecyclerView
