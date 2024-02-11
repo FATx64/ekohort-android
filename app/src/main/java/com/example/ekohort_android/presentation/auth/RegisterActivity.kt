@@ -1,4 +1,4 @@
-package com.example.ekohort_android.auth
+package com.example.ekohort_android.presentation.auth
 
 import android.app.Dialog
 import android.content.Intent

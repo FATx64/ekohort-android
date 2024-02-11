@@ -1,4 +1,4 @@
-package com.example.ekohort_android.blog
+package com.example.ekohort_android.presentation.blog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

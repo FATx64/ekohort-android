@@ -1,13 +1,9 @@
-package com.example.ekohort_android.welcome_screen
+package com.example.ekohort_android.presentation.onboarding
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import com.example.ekohort_android.MainActivity
-import com.example.ekohort_android.R
-import com.example.ekohort_android.auth.LoginActivity
+import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityOnboardingScreen1Binding
 
 class OnboardingScreen1 : AppCompatActivity() {

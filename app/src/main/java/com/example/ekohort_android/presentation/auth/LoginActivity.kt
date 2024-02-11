@@ -1,17 +1,14 @@
-package com.example.ekohort_android.auth
+package com.example.ekohort_android.presentation.auth
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
-import com.example.ekohort_android.R
 import com.example.ekohort_android.databinding.ActivityLoginBinding
-import com.example.ekohort_android.home_page.HomeActivity
+import com.example.ekohort_android.presentation.home.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

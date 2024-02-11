@@ -1,10 +1,10 @@
-package com.example.ekohort_android.view.data_pelayanan.ibu
+package com.example.ekohort_android.presentation.ibu
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ekohort_android.databinding.ActivityListIbuBinding
-import com.example.ekohort_android.view.data_pelayanan.ibu.stepperform.DataIbuAwal
+import com.example.ekohort_android.presentation.ibu.form.DataIbuAwal
 
 class ListIbuActivity : AppCompatActivity() {
 

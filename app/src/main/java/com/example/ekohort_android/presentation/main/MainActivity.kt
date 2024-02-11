@@ -1,4 +1,4 @@
-package com.example.ekohort_android
+package com.example.ekohort_android.presentation.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.example.ekohort_android.welcome_screen.OnboardingScreen1
+import com.example.ekohort_android.R
+import com.example.ekohort_android.presentation.onboarding.OnboardingScreen1
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

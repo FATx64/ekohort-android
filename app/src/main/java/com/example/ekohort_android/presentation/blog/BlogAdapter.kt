@@ -1,4 +1,4 @@
-package com.example.ekohort_android.adapter
+package com.example.ekohort_android.presentation.blog
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ekohort_android.R
-import com.example.ekohort_android.blog.BlogActivity
-import com.example.ekohort_android.model.BlogModel
+import com.example.ekohort_android.data.model.BlogModel
 
 class BlogAdapter (private val listBlog: ArrayList<BlogModel>): RecyclerView.Adapter<BlogAdapter.ListViewHolder>(){
 

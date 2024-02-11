@@ -1,4 +1,4 @@
-package com.example.ekohort_android.custom_ui
+package com.example.ekohort_android.presentation.components
 
 import android.content.Context
 import android.graphics.Canvas

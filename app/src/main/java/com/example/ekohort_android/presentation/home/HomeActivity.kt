@@ -1,14 +1,11 @@
-package com.example.ekohort_android.home_page
+package com.example.ekohort_android.presentation.home
 
-import CarouselAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,12 +14,12 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ekohort_android.R
-import com.example.ekohort_android.adapter.BlogAdapter
-import com.example.ekohort_android.auth.LoginActivity
+import com.example.ekohort_android.presentation.blog.BlogAdapter
+import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
-import com.example.ekohort_android.model.BlogModel
+import com.example.ekohort_android.data.model.BlogModel
 import com.example.ekohort_android.utils.DateUtils
-import com.example.ekohort_android.view.data_pelayanan.ibu.ListIbuActivity
+import com.example.ekohort_android.presentation.ibu.ListIbuActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -55,7 +52,6 @@ class HomeActivity : AppCompatActivity() {
             }
 
         }
-
 
         loginWithGoogle()
         showUserName()
