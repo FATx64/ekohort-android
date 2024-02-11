@@ -1,7 +1,6 @@
 package com.example.ekohort_android.domain.blog.model
 
 import android.os.Parcelable
-import androidx.annotation.StringRes
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
