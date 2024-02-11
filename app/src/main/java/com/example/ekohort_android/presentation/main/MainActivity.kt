@@ -23,5 +23,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }, 2000L)
     }
-
 }

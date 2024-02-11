@@ -15,19 +15,15 @@ class OnboardingScreen1 : AppCompatActivity() {
         binding = ActivityOnboardingScreen1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       binding.apply {
-           btnContinue.setOnClickListener {
-               val intent = Intent (this@OnboardingScreen1, OnboardingScreen2::class.java)
-               startActivity(intent)
-           }
-           btnGetStarted.setOnClickListener {
-               val intent = Intent(this@OnboardingScreen1, LoginActivity::class.java)
-               startActivity(intent)
-           }
-       }
-
+        binding.apply {
+            btnContinue.setOnClickListener {
+                val intent = Intent (this@OnboardingScreen1, OnboardingScreen2::class.java)
+                startActivity(intent)
+            }
+            btnGetStarted.setOnClickListener {
+                val intent = Intent(this@OnboardingScreen1, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
-
-
-
 }

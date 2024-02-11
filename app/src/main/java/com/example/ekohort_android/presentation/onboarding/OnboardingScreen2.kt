@@ -22,5 +22,4 @@ class OnboardingScreen2 : AppCompatActivity() {
             }
         }
     }
-
 }
