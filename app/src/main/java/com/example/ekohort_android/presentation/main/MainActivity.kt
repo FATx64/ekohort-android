@@ -4,9 +4,15 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.ekohort_android.presentation.home.HomeActivity
 import com.example.ekohort_android.presentation.onboarding.OnboardingScreen1
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : Activity() {
+    private val auth: FirebaseAuth by lazy { Firebase.auth }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = if (savedInstanceState == null) installSplashScreen() else null
 
@@ -18,7 +24,10 @@ class MainActivity : Activity() {
             elapsed <= 2000L
         }
 
-        val intent = Intent(this, OnboardingScreen1::class.java)
+        val intent = Intent(
+            this,
+            if (auth.currentUser == null) OnboardingScreen1::class.java else HomeActivity::class.java
+        )
         startActivity(intent)
         finish()
     }
