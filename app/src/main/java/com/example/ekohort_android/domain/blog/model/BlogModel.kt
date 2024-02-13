@@ -1,4 +1,4 @@
-package com.example.ekohort_android.data.blog.model
+package com.example.ekohort_android.domain.blog.model
 
 import android.os.Parcelable
 import androidx.annotation.StringRes

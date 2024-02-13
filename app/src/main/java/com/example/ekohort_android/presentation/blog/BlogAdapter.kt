@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ekohort_android.R
-import com.example.ekohort_android.data.blog.model.BlogModel
+import com.example.ekohort_android.domain.blog.model.BlogModel
 
 class BlogAdapter (private val listBlog: ArrayList<BlogModel>): RecyclerView.Adapter<BlogAdapter.ListViewHolder>(){
 
