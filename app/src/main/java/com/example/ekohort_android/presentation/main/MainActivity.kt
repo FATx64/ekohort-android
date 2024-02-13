@@ -7,11 +7,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.ekohort_android.presentation.home.HomeActivity
 import com.example.ekohort_android.presentation.onboarding.OnboardingScreen1
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import org.koin.android.ext.android.inject
 
 class MainActivity : Activity() {
-    private val auth: FirebaseAuth by lazy { Firebase.auth }
+    private val auth: FirebaseAuth by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = if (savedInstanceState == null) installSplashScreen() else null
