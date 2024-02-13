@@ -16,7 +16,7 @@ import com.example.ekohort_android.R
 import com.example.ekohort_android.presentation.blog.BlogAdapter
 import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
-import com.example.ekohort_android.data.model.BlogModel
+import com.example.ekohort_android.data.blog.model.BlogModel
 import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.utils.DateUtils
 import com.example.ekohort_android.presentation.ibu.ListIbuActivity
