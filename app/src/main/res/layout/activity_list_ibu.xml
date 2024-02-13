@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginTop="20dp"
-            android:text="@string/list_ibu_hamil"
+            android:text="List Data Ibu "
             android:textColor="@color/white"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
