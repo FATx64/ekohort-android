@@ -24,19 +24,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import org.koin.android.ext.android.inject
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     private lateinit var googleSigningClient: GoogleSignInClient
-    private lateinit var auth: FirebaseAuth
+    private val auth: FirebaseAuth by inject()
 
     private val dateUtils = DateUtils()
 
     private lateinit var rvBlog: RecyclerView
     private val list = ArrayList<BlogModel>()
-
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +47,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             logoutButton.setOnClickListener {
                 signOut()
             }
-
         }
 
         loginWithGoogle()
@@ -65,7 +62,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     }
 
     private fun loginWithGoogle(){
-        auth = FirebaseAuth.getInstance()
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com")
@@ -74,13 +70,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
         googleSigningClient = GoogleSignIn.getClient(this, gso)
 
-
         googleSigningClient
 
         val textView = findViewById<TextView>(R.id.name)
 
         val user = auth.currentUser
-        val auth = Firebase.auth
 
         //showing username
         if (user != null){
@@ -148,12 +142,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             return listBlog
         }
 
-
     private fun showUserName(){
         val currentDate = dateUtils.getCurrentDate()
         binding.dateTextView.text = currentDate
     }
-
 
     private fun signOut(){
         auth.signOut()
@@ -161,5 +153,4 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
-
 }

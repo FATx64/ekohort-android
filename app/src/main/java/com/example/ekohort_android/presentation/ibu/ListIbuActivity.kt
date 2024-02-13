@@ -8,10 +8,9 @@ import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
 
 class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         binding = ActivityListIbuBinding.inflate(layoutInflater)
-
-        super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.apply {

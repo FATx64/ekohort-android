@@ -8,6 +8,13 @@ import kotlinx.coroutines.tasks.await
 class IbuRepositoryImpl(
     private val db: FirebaseFirestore
 ) : IbuRepository {
+    override suspend fun getIbuById(id: String): Ibu? {
+        return try {
+            db.collection("ibu").document(id).get().await().toObject(Ibu::class.java)
+        } catch (_: Exception) {
+            null
+        }
+    }
 
     override suspend fun getAllIbu(): List<Ibu> {
         return db.collection("ibu").get().await().map { document ->
@@ -17,11 +24,11 @@ class IbuRepositoryImpl(
         }
     }
 
-    override fun insert() {
-        TODO("Not yet implemented")
+    override suspend fun insert(data: Ibu) {
+        db.collection("ibu").add(data).await()
     }
 
-    override fun delete() {
-        TODO("Not yet implemented")
+    override suspend fun delete(id: String) {
+        db.collection("ibu").document(id).delete().await()
     }
 }

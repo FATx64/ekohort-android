@@ -1,7 +1,7 @@
 package com.example.ekohort_android.domain.ibu.model
 
-import com.example.ekohort_android.utils.delegates.WriteOnce
-import java.util.Date
+import com.example.ekohort_android.domain.base.model.ModelWithId
+import java.util.*
 
 data class Ibu(
     val name: String,
@@ -16,6 +16,4 @@ data class Ibu(
     val visitDate: Date,
     val nextVisit: Date,
     val phoneNumber: String,
-) {
-    var id by WriteOnce<String>()
-}
+) : ModelWithId()
