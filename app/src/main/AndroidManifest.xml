@@ -16,7 +16,7 @@
         android:name=".EkohortApplication"
         tools:targetApi="31">
         <activity
-            android:name=".view.data_pelayanan.ibu.detail.DetailIbuActivity"
+            android:name=".presentation.ibu.DetailIbuActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.ibu.form.DataIbuAwalActivity"
