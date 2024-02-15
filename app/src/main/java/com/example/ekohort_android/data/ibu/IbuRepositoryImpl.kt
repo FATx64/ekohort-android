@@ -16,35 +16,35 @@ class IbuRepositoryImpl(
 ) : IbuRepository {
     override suspend fun getIbuById(id: String): Ibu? {
         return try {
-            db.collection(Ibu.collectionName).document(id).get().await().toObject()
+            db.collection(Ibu.COLLECTION_NAME).document(id).get().await().toObject()
         } catch (_: Exception) {
             null
         }
     }
 
     override fun getIbuByIdAsFlow(id: String): Flow<Ibu?> {
-        return db.collection(Ibu.collectionName).document(id).snapshots().map { it.toObject() }
+        return db.collection(Ibu.COLLECTION_NAME).document(id).snapshots().map { it.toObject() }
     }
 
     override suspend fun getAllIbu(): List<Ibu> {
-        return db.collection(Ibu.collectionName).get().await().map { it.toObject() }
+        return db.collection(Ibu.COLLECTION_NAME).get().await().map { it.toObject() }
     }
     
     override fun getAllIbuAsFlow(): Flow<List<Ibu>> {
-        return db.collection(Ibu.collectionName).snapshots().map(QuerySnapshot::toObjects)
+        return db.collection(Ibu.COLLECTION_NAME).snapshots().map(QuerySnapshot::toObjects)
     }
 
     override suspend fun insert(data: Ibu) {
-        db.collection(Ibu.collectionName).document().set(data).await()
+        db.collection(Ibu.COLLECTION_NAME).document().set(data).await()
     }
 
     override suspend fun delete(id: String) {
-        db.collection(Ibu.collectionName).document(id).delete().await()
+        db.collection(Ibu.COLLECTION_NAME).document(id).delete().await()
     }
 
     override suspend fun update(id: String, data: Ibu) {
         getIbuById(id)?.let {
-            db.collection(Ibu.collectionName).document(it.id).set(data).await()
+            db.collection(Ibu.COLLECTION_NAME).document(it.id).set(data).await()
         }
     }
 }

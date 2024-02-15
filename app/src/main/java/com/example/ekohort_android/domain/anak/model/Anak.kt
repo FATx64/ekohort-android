@@ -1,4 +1,4 @@
-package com.example.ekohort_android.domain.ibu.model
+package com.example.ekohort_android.domain.anak.model
 
 import android.annotation.SuppressLint
 import android.os.Parcelable
@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Parcelize
-data class Ibu(
+data class Anak(
     val name: String,
     val nik: Long,
     val kk: Long,
@@ -24,11 +24,11 @@ data class Ibu(
     val phoneNumber: String,
     @DocumentId
     val id: String = "",
-) : AdapterModel<Ibu>(), Parcelable {
+) : AdapterModel<Anak>(), Parcelable {
     constructor() : this("", 0L, 0L, Date(), "", "", 0, 0, "", Date(), Date(), "", "")
 
     @SuppressLint("SetTextI18n")
-    override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit, onUpdate: (data: Ibu) -> Unit, onOpen: (data: Ibu) -> Unit) {
+    override fun bind(binding: ItemIbuBinding, onDelete: (data: Anak) -> Unit, onUpdate: (data: Anak) -> Unit, onOpen: (data: Anak) -> Unit) {
         binding.tvName.text = "Nama : $name"
         binding.tvNIK.text = "NIK : $nik"
         binding.tvAdditional1.text = "No KK : $kk"
@@ -39,7 +39,7 @@ data class Ibu(
     }
 
     override fun compare(other: Any?): Boolean {
-        if (other !is Ibu) return false
+        if (other !is Anak) return false
         return id == other.id
     }
 

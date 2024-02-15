@@ -1,6 +1,8 @@
 package com.example.ekohort_android.domain
 
+import com.example.ekohort_android.data.anak.AnakRepositoryImpl
 import com.example.ekohort_android.data.ibu.IbuRepositoryImpl
+import com.example.ekohort_android.domain.anak.AnakRepository
 import com.example.ekohort_android.domain.ibu.IbuRepository
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -11,5 +13,6 @@ val domainModules = module {
     single { Firebase.firestore }
     single { Firebase.auth }
 
+    single<AnakRepository> { AnakRepositoryImpl(get()) }
     single<IbuRepository> { IbuRepositoryImpl(get()) }
 }
