@@ -7,8 +7,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.IbuRepository
 import com.google.firebase.firestore.FirebaseFirestoreException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ListIbuViewModel(private val repository: IbuRepository) : ViewModel() {
     private val _data: MutableStateFlow<Result<List<Ibu>>> = MutableStateFlow(Result.Idle())
@@ -23,19 +25,9 @@ class ListIbuViewModel(private val repository: IbuRepository) : ViewModel() {
 
     fun fetchData() {
         viewModelScope.launch {
-            if (_data.value !is Result.Idle) _data.emit(Result.Idle(false))
-            try {
-                val newData = repository.getAllIbu()
-                _data.emit(Result.Success(newData))
-            } catch (e: Exception) {
-                e.printStackTrace()
-                when (e) {
-                    is FirebaseFirestoreException -> {
-                        _data.emit(Result.Error("ERR: ${e.code} -", e))
-                    }
-                    else -> {
-                        _data.emit(Result.Error("Something went wrong!", e))
-                    }
+            withContext(Dispatchers.IO) {
+                repository.getAllIbuAsFlow().collect {
+                    _data.emit(Result.Success(it))
                 }
             }
         }

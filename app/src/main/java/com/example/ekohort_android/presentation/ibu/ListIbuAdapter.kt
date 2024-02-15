@@ -1,5 +1,6 @@
 package com.example.ekohort_android.presentation.ibu
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ekohort_android.databinding.ItemIbuBinding
 import com.example.ekohort_android.domain.base.model.AdapterModel
 
-class ListIbuAdapter<T, D : AdapterModel<T>>(val data: List<D>, private val onDelete: (T) -> Unit = {}) :
+class ListIbuAdapter<T, D : AdapterModel<T>>(private val onDelete: (T) -> Unit = {}) :
     ListAdapter<D, ListIbuAdapter.ViewHolder<T, D>>(object : DiffUtil.ItemCallback<D>() {
+        @SuppressLint("DiffUtilEquals")
         override fun areContentsTheSame(old: D, new: D): Boolean {
             return old == new
         }
@@ -30,11 +32,7 @@ class ListIbuAdapter<T, D : AdapterModel<T>>(val data: List<D>, private val onDe
         return ViewHolder(binding, onDelete)
     }
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
-
     override fun onBindViewHolder(holder: ViewHolder<T, D>, position: Int) {
-        holder.bind(data[position])
+        holder.bind(getItem(position))
     }
 }

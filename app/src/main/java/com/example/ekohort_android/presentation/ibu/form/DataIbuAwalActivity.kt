@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.ekohort_android.R
@@ -21,7 +20,7 @@ import com.example.ekohort_android.utils.exts.toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,7 +28,7 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
 
     private val calendar = Calendar.getInstance()
 
-    private val viewModel by lazy { DataIbuViewModel(get()) }
+    private val viewModel: DataIbuViewModel by viewModel()
     private var dateOfBirth: Long = System.currentTimeMillis()
 
     override fun onCreate(savedInstanceState: Bundle?) {

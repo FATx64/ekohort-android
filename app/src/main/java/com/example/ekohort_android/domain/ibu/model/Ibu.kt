@@ -33,7 +33,7 @@ data class Ibu(
         binding.btnDelete.setOnClickListener { onDelete(this) }
     }
 
-    override fun compare(other: Any): Boolean {
+    override fun compare(other: Any?): Boolean {
         if (other !is Ibu) return false
         return id == other.id
     }
