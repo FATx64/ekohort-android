@@ -21,4 +21,14 @@ class DetailIbuViewModel(val repository: IbuRepository, val id: String) : ViewMo
             }
         }
     }
+
+    fun delete(data: Ibu) {
+        viewModelScope.launch {
+            try {
+                repository.delete(data.id)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 }
