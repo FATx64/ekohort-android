@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class DataIbuViewModel(val repository: IbuRepository): ViewModel() {
+class DataIbuViewModel(val repository: IbuRepository) : ViewModel() {
     private val _state: MutableStateFlow<Result<Boolean>> = MutableStateFlow(Result.Idle())
     val state: StateFlow<Result<Boolean>> = _state
 

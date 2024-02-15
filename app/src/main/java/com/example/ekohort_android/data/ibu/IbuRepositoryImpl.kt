@@ -22,6 +22,10 @@ class IbuRepositoryImpl(
         }
     }
 
+    override fun getIbuByIdAsFlow(id: String): Flow<Ibu?> {
+        return db.collection(Ibu.collectionName).document(id).snapshots().map { it.toObject() }
+    }
+
     override suspend fun getAllIbu(): List<Ibu> {
         return db.collection(Ibu.collectionName).get().await().map { it.toObject() }
     }

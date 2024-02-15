@@ -84,7 +84,7 @@
 
 
         <TextView
-            android:id="@+id/tv_nik"
+            android:id="@+id/tv_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nik"
@@ -105,7 +105,7 @@
             android:hint="@string/nik"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nik">
+            app:layout_constraintTop_toBottomOf="@+id/tv_data">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtnik"
@@ -194,7 +194,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/tv_provinsi"
+            android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/provinsi"
@@ -208,8 +208,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12sp"
-            android:prompt="@id/tv_provinsi"
-            app:layout_constraintTop_toBottomOf="@id/tv_provinsi"
+            android:prompt="@id/tv_address"
+            app:layout_constraintTop_toBottomOf="@id/tv_address"
             app:layout_constraintBottom_toBottomOf="@id/tv_alamat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    tools:context=".presentation.ibu.DetailIbuActivity">
+    tools:context=".presentation.ibu.detail.DetailIbuActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="164dp"
             android:layout_marginTop="16dp"
-            android:text="+621234567"
+            tools:text="+621234567"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name" />
 
@@ -92,50 +92,24 @@
             android:id="@+id/tv_data_ibu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:text="@string/data_ibu"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider" />
 
         <TextView
-            android:id="@+id/tv_nik"
+            android:id="@+id/tv_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:lineSpacingMultiplier="1.2"
             android:textSize="15sp"
-            tools:text="Nik : 123123123"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.087"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_data_ibu" />
-
-        <TextView
-            android:id="@+id/tv_kk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="15sp"
-            tools:text="KK : 1039294023"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.087"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nik" />
-
-        <TextView
-            android:id="@+id/tv_dob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="14sp"
-            tools:text="Tanggal lahir : 11/11/2011"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.087"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_kk" />
+            app:layout_constraintStart_toStartOf="@+id/tv_data_ibu"
+            app:layout_constraintTop_toBottomOf="@+id/tv_data_ibu"
+            tools:text="Nik : 123123123\nJob : Urmom"/>
 
         <TextView
             android:id="@+id/tv_tempat_tinggal_sekarang"
@@ -145,116 +119,43 @@
             android:text="@string/tempat_tinggal_sekarang"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.064"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dob" />
+            app:layout_constraintStart_toStartOf="@+id/tv_data"
+            app:layout_constraintTop_toBottomOf="@+id/tv_data"/>
 
         <TextView
-            android:id="@+id/tv_provinsi"
+            android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textSize="14sp"
-            tools:text="Provinsi : Selected Item"
+            app:layout_constraintStart_toStartOf="@+id/tv_tempat_tinggal_sekarang"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tempat_tinggal_sekarang"
             app:layout_goneMarginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.087"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tempat_tinggal_sekarang" />
+            tools:text="Provinsi : Selected Item"/>
 
         <TextView
-            android:id="@+id/tv_alamat"
+            android:id="@+id/tv_additional_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_provinsi"
-            app:layout_goneMarginTop="20dp"
-            tools:text="Alamat" />
-
-        <TextView
-            android:id="@+id/tv_data_riwayat_kesehatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
             android:text="@string/data_riwayat_kesehatan_detail"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_alamat"
+            app:layout_constraintStart_toStartOf="@+id/tv_address"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
             app:layout_goneMarginTop="20dp"
-           />
+        />
 
         <TextView
-            android:id="@+id/tv_tb"
+            android:id="@+id/tv_additional"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_data_riwayat_kesehatan"
+            app:layout_constraintStart_toStartOf="@+id/tv_additional_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_additional_title"
             app:layout_goneMarginTop="20dp"
-            tools:text="Tinggi Badan : 69cm" />
-
-        <TextView
-            android:id="@+id/tv_bb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tb"
-            app:layout_goneMarginTop="20dp"
-            tools:text="Berat Badan : 69kg" />
-
-        <TextView
-            android:id="@+id/tv_visit_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_bb"
-            app:layout_goneMarginTop="20dp"
-            tools:text="Tanggal Kunjungan : 6 / 9 / 2023" />
-
-        <TextView
-            android:id="@+id/tv_next_visit_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.084"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_visit_date"
-            app:layout_goneMarginTop="20dp"
-            tools:text="Tanggal Kunjungan Berikutnya: 6 / 9 / 2023" />
-
-        <TextView
-            android:id="@+id/wa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_next_visit_date"
-            app:layout_goneMarginTop="20dp"
-            tools:text="WA : 082132234232" />
+            tools:text="Tinggi Badan : 69cm"/>
 
         <Button
             android:id="@+id/btn_delete"
@@ -264,7 +165,7 @@
             android:layout_marginTop="24dp"
             android:text="Delete"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wa" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_additional" />
 
         <Button
             android:id="@+id/btn_contact"
@@ -274,7 +175,7 @@
             android:layout_marginTop="24dp"
             android:text="@string/wa"
             app:layout_constraintStart_toEndOf="@id/btn_delete"
-            app:layout_constraintTop_toBottomOf="@id/wa" />
+            app:layout_constraintTop_toBottomOf="@id/tv_additional" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
