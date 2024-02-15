@@ -33,7 +33,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     private val dateUtils = DateUtils()
 
-    private lateinit var rvBlog: RecyclerView
     private val list = ArrayList<BlogModel>()
 
     @SuppressLint("SetTextI18n")
@@ -54,9 +53,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         carouselAdapter()
         menuOnCard()
 
-        rvBlog = findViewById(R.id.rv_blog)
-        rvBlog.setHasFixedSize(true)
-        shoRecyclerList()
+        binding.rvBlog.setHasFixedSize(true)
+        binding.rvBlog.showRecyclerList()
         list.addAll(blogList)
 
     }
@@ -118,14 +116,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         viewPager.setPageTransformer(compositePageTransformer)
     }
 
-    private fun shoRecyclerList(){
+    private fun RecyclerView.showRecyclerList() {
         if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
-            rvBlog.layoutManager = GridLayoutManager(this, 2)
+            this.layoutManager = GridLayoutManager(this@HomeActivity, 2)
         } else{
-            rvBlog.layoutManager = LinearLayoutManager(this)
+            this.layoutManager = LinearLayoutManager(this@HomeActivity)
         }
         val blogAdapter = BlogAdapter(list)
-        rvBlog.adapter = blogAdapter
+        this.adapter = blogAdapter
     }
 
     private val blogList: ArrayList<BlogModel>
