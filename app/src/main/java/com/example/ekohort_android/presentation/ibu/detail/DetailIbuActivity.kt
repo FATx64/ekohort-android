@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.ekohort_android.databinding.ActivityDetailIbuBinding
 import com.example.ekohort_android.domain.Result
+import com.example.ekohort_android.domain.ibu.IbuRepository
 import com.example.ekohort_android.domain.ibu.model.Ibu
 import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
@@ -26,7 +27,7 @@ class DetailIbuActivity : BaseActivity<ActivityDetailIbuBinding>() {
         currentData = intent.getParcelableExtraCompat("ekohort_android.current")
         currentData ?: finish()  // Nuh uh
 
-        viewModel = getViewModel(parameters = { parametersOf(get(), currentData!!.id) })
+        viewModel = getViewModel(parameters = { parametersOf(get<IbuRepository>(), currentData!!.id) })
 
         super.onCreate(savedInstanceState)
 
