@@ -1,5 +1,8 @@
 package com.example.ekohort_android.domain.ibu.model
 
+import android.annotation.SuppressLint
+import com.example.ekohort_android.databinding.ItemIbuBinding
+import com.example.ekohort_android.domain.base.model.AdapterModel
 import com.example.ekohort_android.domain.base.model.ModelWithId
 import java.util.*
 
@@ -16,4 +19,12 @@ data class Ibu(
     val visitDate: Date,
     val nextVisit: Date,
     val phoneNumber: String,
-) : ModelWithId()
+) : AdapterModel() {
+    @SuppressLint("SetTextI18n")
+    override fun bind(binding: ItemIbuBinding) {
+        binding.tvName.text = "Nama : $name"
+        binding.tvNIK.text = "NIK : $nik"
+        binding.tvAdditional1.text = "No KK : $kk"
+        binding.tvAdditional2.text = "Alamat : $address"
+    }
+}
