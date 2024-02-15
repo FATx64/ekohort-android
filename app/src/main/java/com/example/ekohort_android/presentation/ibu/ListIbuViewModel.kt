@@ -6,7 +6,6 @@ import com.example.ekohort_android.domain.ibu.model.Ibu
 import kotlinx.coroutines.flow.MutableStateFlow
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.IbuRepository
-import com.google.firebase.firestore.FirebaseFirestoreException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -20,10 +19,6 @@ class ListIbuViewModel(private val repository: IbuRepository) : ViewModel() {
     val manipState: StateFlow<Result<Unit>> = _manipState
 
     init {
-        fetchData()
-    }
-
-    fun fetchData() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 repository.getAllIbuAsFlow().collect {
@@ -33,15 +28,15 @@ class ListIbuViewModel(private val repository: IbuRepository) : ViewModel() {
         }
     }
 
-    fun delete(ibu: Ibu) {
+    fun delete(data: Ibu) {
         viewModelScope.launch {
             _manipState.emit(Result.Idle())
             try {
-                repository.delete(ibu.id)
+                repository.delete(data.id)
                 _manipState.emit(Result.Success())
             } catch (e: Exception) {
                 e.printStackTrace()
-                _manipState.emit(Result.Error("Failed to delete ${ibu.name}", e))
+                _manipState.emit(Result.Error("Failed to delete ${data.name}", e))
             }
         }
     }

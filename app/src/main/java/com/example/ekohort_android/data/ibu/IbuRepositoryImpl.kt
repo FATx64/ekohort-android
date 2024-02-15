@@ -16,31 +16,31 @@ class IbuRepositoryImpl(
 ) : IbuRepository {
     override suspend fun getIbuById(id: String): Ibu? {
         return try {
-            db.collection("ibu").document(id).get().await().toObject()
+            db.collection(Ibu.collectionName).document(id).get().await().toObject()
         } catch (_: Exception) {
             null
         }
     }
 
     override suspend fun getAllIbu(): List<Ibu> {
-        return db.collection("ibu").get().await().map { it.toObject() }
+        return db.collection(Ibu.collectionName).get().await().map { it.toObject() }
     }
     
     override fun getAllIbuAsFlow(): Flow<List<Ibu>> {
-        return db.collection("ibu").snapshots().map(QuerySnapshot::toObjects)
+        return db.collection(Ibu.collectionName).snapshots().map(QuerySnapshot::toObjects)
     }
 
     override suspend fun insert(data: Ibu) {
-        db.collection("ibu").document().set(data).await()
+        db.collection(Ibu.collectionName).document().set(data).await()
     }
 
     override suspend fun delete(id: String) {
-        db.collection("ibu").document(id).delete().await()
+        db.collection(Ibu.collectionName).document(id).delete().await()
     }
 
     override suspend fun update(id: String, data: Ibu) {
         getIbuById(id)?.let {
-            db.collection("ibu").document(it.id).set(data).await()
+            db.collection(Ibu.collectionName).document(it.id).set(data).await()
         }
     }
 }

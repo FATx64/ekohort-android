@@ -7,6 +7,7 @@ import com.example.ekohort_android.databinding.ItemIbuBinding
 import com.example.ekohort_android.domain.base.model.AdapterModel
 import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
 import com.google.firebase.firestore.DocumentId
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.util.*
 
@@ -42,5 +43,9 @@ data class Ibu(
     override fun compare(other: Any?): Boolean {
         if (other !is Ibu) return false
         return id == other.id
+    }
+
+    companion object {
+        val collectionName = "ibu"
     }
 }
