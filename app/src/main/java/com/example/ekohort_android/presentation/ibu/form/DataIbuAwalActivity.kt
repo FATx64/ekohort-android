@@ -32,11 +32,13 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
     private var id: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        id = intent.getStringExtra("ekohort_android.id")
         super.onCreate(savedInstanceState)
         binding = ActivityDataIbuAwalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.apply {
+            if (id != null) titleTambahData.setText(R.string.ubah_data_ibu)
             edtDoB.setOnClickListener { it.showDatePickerDialog() }
             edtTanggalKunjungan.setOnClickListener { it.showDatePickerDialog() }
             edtTanggalKunjunganBerikutnya.setOnClickListener { it.showDatePickerDialog() }
@@ -59,9 +61,8 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
                             nextVisit = binding.edtTanggalKunjunganBerikutnya.text.toDate(),
                             phoneNumber = binding.edtWa.text.toString()
                         )
-                        if (id == null) viewModel.insert(ibu)
+                        if (id == null) viewModel.insert(ibu) else viewModel.update(id!!, ibu)
                         // Optimistic approach, cuz I can't be bothered to do something else
-                        setResult(RESULT_OK)
                         finish()
                     }
                     .setNegativeButton("Kembali", null)

@@ -26,7 +26,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
     private val viewModel: ListIbuViewModel by viewModel()
     private val adapter by lazy {
-        ListIbuAdapter<Ibu, Ibu> {
+        ListIbuAdapter<Ibu, Ibu>({
             MaterialAlertDialogBuilder(this@ListIbuActivity)
                 .setMessage("Are you sure?")
                 .setPositiveButton(android.R.string.ok) {_, _ ->
@@ -34,7 +34,12 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
                 }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
-        }
+        }, {
+            val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java).apply {
+                putExtra("ekohort_android.id", it.id)
+            }
+            startActivity(intent)
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +84,7 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
 
             btnAddData.setOnClickListener {
                 val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java)
-                startForResult.launch(intent)
+                startActivity(intent)
             }
         }
     }
@@ -91,11 +96,5 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
             this.layoutManager = LinearLayoutManager(this@ListIbuActivity)
         }
         this.adapter = this@ListIbuActivity.adapter
-    }
-
-    private val startForResult = registerForActivityResult(StartActivityForResult()) { result: ActivityResult ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            viewModel.fetchData()
-        }
     }
 }

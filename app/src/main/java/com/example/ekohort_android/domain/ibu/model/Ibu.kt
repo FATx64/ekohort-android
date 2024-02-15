@@ -1,8 +1,10 @@
 package com.example.ekohort_android.domain.ibu.model
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import com.example.ekohort_android.databinding.ItemIbuBinding
 import com.example.ekohort_android.domain.base.model.AdapterModel
+import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
 import com.google.firebase.firestore.DocumentId
 import java.util.*
 
@@ -25,12 +27,13 @@ data class Ibu(
     constructor() : this("", 0L, 0L, Date(), "", "", 0, 0, "", Date(), Date(), "", "")
 
     @SuppressLint("SetTextI18n")
-    override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit) {
+    override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit, onUpdate: (data: Ibu) -> Unit) {
         binding.tvName.text = "Nama : $name"
         binding.tvNIK.text = "NIK : $nik"
         binding.tvAdditional1.text = "No KK : $kk"
         binding.tvAdditional2.text = "Alamat : $address"
         binding.btnDelete.setOnClickListener { onDelete(this) }
+        binding.btnUpdate.setOnClickListener { onUpdate(this) }
     }
 
     override fun compare(other: Any?): Boolean {

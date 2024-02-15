@@ -49,6 +49,7 @@
     <string name="list_ibu_hamil">List Ibu Hamil</string>
     <string name="tambah_data">+ Tambah Data</string>
     <string name="tambah_data_ibu_baru">Tambah Data Ibu Baru</string>
+    <string name="ubah_data_ibu">Ubah Data Ibu</string>
 
     <!-- resources blog (title, picture, description, date) -->
 
