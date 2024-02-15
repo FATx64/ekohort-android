@@ -17,18 +17,20 @@ class IbuRepositoryImpl(
     }
 
     override suspend fun getAllIbu(): List<Ibu> {
-        return db.collection("ibu").get().await().map { document ->
-            val rt = document.toObject(Ibu::class.java)
-            rt.id = document.id
-            rt
-        }
+        return db.collection("ibu").get().await().map { it.toObject(Ibu::class.java) }
     }
 
     override suspend fun insert(data: Ibu) {
-        db.collection("ibu").add(data).await()
+        db.collection("ibu").document().set(data).await()
     }
 
     override suspend fun delete(id: String) {
         db.collection("ibu").document(id).delete().await()
+    }
+
+    override suspend fun update(id: String, data: Ibu) {
+        getIbuById(id)?.let {
+            db.collection("ibu").document(it.id).set(data).await()
+        }
     }
 }

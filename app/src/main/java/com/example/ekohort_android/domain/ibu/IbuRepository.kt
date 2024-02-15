@@ -7,4 +7,5 @@ interface IbuRepository {
     suspend fun getAllIbu(): List<Ibu>
     suspend fun insert(data: Ibu)
     suspend fun delete(id: String)
+    suspend fun update(id: String, data: Ibu)
 }

@@ -1,10 +1,17 @@
 package com.example.ekohort_android.presentation.ibu
 
+import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts.*
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,42 +38,56 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
         setContentView(binding.root)
 
         binding.apply {
-            rvItemIbu.setHasFixedSize(true)
             rvItemIbu.showRecyclerList()
 
-            lifecycle.coroutineScope.launch {
-                viewModel.data.collectLatest {
-                    loading.isVisible = it is Result.Idle && it.firstLoad
-                    rvItemIbu.isVisible = it !is Result.Idle
+            lifecycleScope.launch {
+                lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    launch {
+                        viewModel.data.collect {
+                            loading.isVisible = it is Result.Idle && it.firstLoad
+                            rvItemIbu.isVisible = it !is Result.Idle
 
-                    when (it) {
-                        is Result.Idle -> {
-                            // TODO: Add loading?
-                        }
-                        is Result.Error -> {
-                            it.exception?.let { exc ->
-                                toast("${it.message} ${exc::class.qualifiedName}")
-                                true
-                            } ?: toast(it.message)
-                        }
-                        is Result.Success -> {
-                            dataList.clear()
-                            it.data?.let(dataList::addAll)
+                            when (it) {
+                                is Result.Idle -> {
+                                    // TODO: Add loading?
+                                }
+
+                                is Result.Error -> {
+                                    it.exception?.let { exc ->
+                                        toast("${it.message} ${exc::class.qualifiedName}")
+                                        true
+                                    } ?: toast(it.message)
+                                }
+
+                                is Result.Success -> {
+                                    dataList.clear()
+                                    it.data?.let(dataList::addAll)
+                                }
+                            }
                         }
                     }
-                }
 
-                viewModel.manipState.collectLatest {
-                    when (it) {
-                        is Result.Success -> viewModel::fetchData
-                        else -> {}
+                    launch {
+                        viewModel.manipState.collect {
+                            when (it) {
+                                is Result.Success -> viewModel::fetchData
+                                is Result.Error -> {
+                                    it.exception?.let { exc ->
+                                        toast("${it.message} ${exc::class.qualifiedName}")
+                                        true
+                                    } ?: toast(it.message)
+                                }
+
+                                else -> {}
+                            }
+                        }
                     }
                 }
             }
 
             btnAddData.setOnClickListener {
                 val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java)
-                startActivity(intent)
+                startForResult.launch(intent)
             }
         }
     }
@@ -83,8 +104,15 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
                 .setPositiveButton(android.R.string.ok) {_, _ ->
                     viewModel.delete(it)
                 }
-                .setNeutralButton(android.R.string.cancel, null)
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
         }
         this.adapter = adapter
+    }
+
+    private val startForResult = registerForActivityResult(StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            viewModel.fetchData()
+        }
     }
 }

@@ -2,12 +2,22 @@ package com.example.ekohort_android.presentation.ibu
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ekohort_android.databinding.ItemIbuBinding
 import com.example.ekohort_android.domain.base.model.AdapterModel
 
 class ListIbuAdapter<T, D : AdapterModel<T>>(val data: List<D>, private val onDelete: (T) -> Unit = {}) :
-    RecyclerView.Adapter<ListIbuAdapter.ViewHolder<T, D>>() {
+    ListAdapter<D, ListIbuAdapter.ViewHolder<T, D>>(object : DiffUtil.ItemCallback<D>() {
+        override fun areContentsTheSame(old: D, new: D): Boolean {
+            return old == new
+        }
+
+        override fun areItemsTheSame(old: D, new: D): Boolean {
+            return old.compare(new)
+        }
+    }) {
     class ViewHolder<T, D : AdapterModel<T>>(val binding: ItemIbuBinding, private val onDelete: (T) -> Unit) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: D) {
             data.bind(binding, onDelete)
