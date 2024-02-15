@@ -2,7 +2,6 @@ package com.example.ekohort_android.presentation.ibu.form
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.IbuRepository
 import com.example.ekohort_android.domain.ibu.model.Ibu

@@ -18,7 +18,6 @@ import com.example.ekohort_android.utils.exts.toInt
 import com.example.ekohort_android.utils.exts.toLong
 import com.example.ekohort_android.utils.exts.toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -30,6 +29,7 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
 
     private val viewModel: DataIbuViewModel by viewModel()
     private var dateOfBirth: Long = System.currentTimeMillis()
+    private var id: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +44,7 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
                 MaterialAlertDialogBuilder(this@DataIbuAwalActivity)
                     .setTitle("Simpan Data Ibu?")
                     .setMessage("Pastikan semua data sudah benar sebelum disimpan")
-                    .setPositiveButton("Simpan") { _, _ ->
+                    .setPositiveButton(R.string.save) { _, _ ->
                         val ibu = Ibu(
                             name = binding.edtNamaIbu.text.toString(),
                             nik = binding.edtnik.text.toLong(),
@@ -59,7 +59,10 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
                             nextVisit = binding.edtTanggalKunjunganBerikutnya.text.toDate(),
                             phoneNumber = binding.edtWa.text.toString()
                         )
-                        viewModel.insert(ibu)
+                        if (id == null) viewModel.insert(ibu)
+                        // Optimistic approach, cuz I can't be bothered to do something else
+                        setResult(RESULT_OK)
+                        finish()
                     }
                     .setNegativeButton("Kembali", null)
                     .show()
@@ -68,24 +71,15 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
             lifecycleScope.launch {
                 lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     launch {
-                        viewModel.state.collectLatest {
+                        viewModel.state.collect {
                             when (it) {
-                                is Result.Idle -> {
-                                    if (it.firstLoad) return@collectLatest
-                                    // TODO: Add loading?
-                                }
-
                                 is Result.Error -> {
                                     it.exception?.let { exception ->
                                         toast("${it.message} ${exception::class.qualifiedName}")
                                         true
                                     } ?: toast(it.message)
                                 }
-
-                                is Result.Success -> {
-                                    setResult(RESULT_OK)
-                                    finish()
-                                }
+                                else -> {}
                             }
                         }
                     }

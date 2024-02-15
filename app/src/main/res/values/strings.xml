@@ -102,6 +102,7 @@
     <string name="tanggal_kunjungan_berikutnya">Tanggal Kunjungan Berikutnya</string>
     <string name="nomor_hp_wa">Nomor HP/WA</string>
     <string name="submit_data">Submit Data</string>
+    <string name="save">Simpan</string>
     <string name="detail">Detail</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
@@ -142,6 +143,4 @@
         <item>Papua</item>
         <item>Papua Barat</item>
     </string-array>
-
-
 </resources>
