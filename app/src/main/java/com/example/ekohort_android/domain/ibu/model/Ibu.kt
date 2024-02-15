@@ -31,13 +31,14 @@ data class Ibu(
     constructor() : this("", 0L, 0L, Date(), "", "", 0, 0, "", Date(), Date(), "", "")
 
     @SuppressLint("SetTextI18n")
-    override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit, onUpdate: (data: Ibu) -> Unit) {
+    override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit, onUpdate: (data: Ibu) -> Unit, onOpen: (data: Ibu) -> Unit) {
         binding.tvName.text = "Nama : $name"
         binding.tvNIK.text = "NIK : $nik"
         binding.tvAdditional1.text = "No KK : $kk"
         binding.tvAdditional2.text = "Alamat : $address"
         binding.btnDelete.setOnClickListener { onDelete(this) }
         binding.btnUpdate.setOnClickListener { onUpdate(this) }
+        binding.btnDetail.setOnClickListener { onOpen(this) }
     }
 
     override fun compare(other: Any?): Boolean {

@@ -17,6 +17,7 @@ import com.example.ekohort_android.databinding.ActivityListIbuBinding
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.model.Ibu
 import com.example.ekohort_android.presentation.base.BaseActivity
+import com.example.ekohort_android.presentation.ibu.detail.DetailIbuActivity
 import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
 import com.example.ekohort_android.utils.exts.toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -36,6 +37,11 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
                 .show()
         }, {
             val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java).apply {
+                putExtra("ekohort_android.current", it)
+            }
+            startActivity(intent)
+        }, {
+            val intent = Intent(this@ListIbuActivity, DetailIbuActivity::class.java).apply {
                 putExtra("ekohort_android.current", it)
             }
             startActivity(intent)
