@@ -13,6 +13,7 @@ import com.example.ekohort_android.databinding.ActivityDataIbuAwalBinding
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.model.Ibu
 import com.example.ekohort_android.presentation.base.BaseActivity
+import com.example.ekohort_android.utils.exts.getParcelableExtraCompat
 import com.example.ekohort_android.utils.exts.toDate
 import com.example.ekohort_android.utils.exts.toFormattedString
 import com.example.ekohort_android.utils.exts.toInt
@@ -33,7 +34,7 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
     private var currentData: Ibu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        currentData = intent.getParcelableExtra("ekohort_android.current")
+        currentData = intent.getParcelableExtraCompat("ekohort_android.current")
         super.onCreate(savedInstanceState)
         binding = ActivityDataIbuAwalBinding.inflate(layoutInflater)
         setContentView(binding.root)
