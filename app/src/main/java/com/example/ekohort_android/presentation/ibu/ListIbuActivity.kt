@@ -36,7 +36,7 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
                 .show()
         }, {
             val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java).apply {
-                putExtra("ekohort_android.id", it.id)
+                putExtra("ekohort_android.current", it)
             }
             startActivity(intent)
         })

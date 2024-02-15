@@ -2,12 +2,15 @@ package com.example.ekohort_android.domain.ibu.model
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Parcelable
 import com.example.ekohort_android.databinding.ItemIbuBinding
 import com.example.ekohort_android.domain.base.model.AdapterModel
 import com.example.ekohort_android.presentation.ibu.form.DataIbuAwalActivity
 import com.google.firebase.firestore.DocumentId
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
+@Parcelize
 data class Ibu(
     val name: String,
     val nik: Long,
@@ -23,7 +26,7 @@ data class Ibu(
     val phoneNumber: String,
     @DocumentId
     val id: String = "",
-) : AdapterModel<Ibu>() {
+) : AdapterModel<Ibu>(), Parcelable {
     constructor() : this("", 0L, 0L, Date(), "", "", 0, 0, "", Date(), Date(), "", "")
 
     @SuppressLint("SetTextI18n")

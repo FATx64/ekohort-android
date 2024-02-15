@@ -14,6 +14,7 @@ import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.model.Ibu
 import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.utils.exts.toDate
+import com.example.ekohort_android.utils.exts.toFormattedString
 import com.example.ekohort_android.utils.exts.toInt
 import com.example.ekohort_android.utils.exts.toLong
 import com.example.ekohort_android.utils.exts.toast
@@ -29,16 +30,32 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
 
     private val viewModel: DataIbuViewModel by viewModel()
     private var dateOfBirth: Long = System.currentTimeMillis()
-    private var id: String? = null
+    private var currentData: Ibu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        id = intent.getStringExtra("ekohort_android.id")
+        currentData = intent.getParcelableExtra("ekohort_android.current")
         super.onCreate(savedInstanceState)
         binding = ActivityDataIbuAwalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.apply {
-            if (id != null) titleTambahData.setText(R.string.ubah_data_ibu)
+            if (currentData != null) {
+                val current = currentData!!
+                titleTambahData.setText(R.string.ubah_data_ibu)
+                edtNamaIbu.setText(current.name)
+                edtnik.setText(current.nik.toString())
+                edtkk.setText(current.kk.toString())
+                edtDoB.setText(current.birthday.toFormattedString())
+                provinceSpinner.setSelection(resources.getStringArray(R.array.provinsi_array).indexOf(current.province))
+                edtAlamat.setText(current.address)
+                edtTb.setText(current.height.toString())
+                edtBb.setText(current.weight.toString())
+                edtDiagnosa.setText(current.diagnose)
+                edtWa.setText(current.phoneNumber)
+                edtTanggalKunjungan.setText(current.visitDate.toFormattedString())
+                edtTanggalKunjunganBerikutnya.setText(current.nextVisit.toFormattedString())
+                edtWa.setText(current.phoneNumber)
+            }
             edtDoB.setOnClickListener { it.showDatePickerDialog() }
             edtTanggalKunjungan.setOnClickListener { it.showDatePickerDialog() }
             edtTanggalKunjunganBerikutnya.setOnClickListener { it.showDatePickerDialog() }
@@ -61,7 +78,7 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
                             nextVisit = binding.edtTanggalKunjunganBerikutnya.text.toDate(),
                             phoneNumber = binding.edtWa.text.toString()
                         )
-                        if (id == null) viewModel.insert(ibu) else viewModel.update(id!!, ibu)
+                        if (currentData == null) viewModel.insert(ibu) else viewModel.update(currentData!!.id, ibu)
                         // Optimistic approach, cuz I can't be bothered to do something else
                         finish()
                     }
