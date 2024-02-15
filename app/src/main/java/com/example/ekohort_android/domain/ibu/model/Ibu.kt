@@ -19,12 +19,13 @@ data class Ibu(
     val visitDate: Date,
     val nextVisit: Date,
     val phoneNumber: String,
-) : AdapterModel() {
+) : AdapterModel<Ibu>() {
     @SuppressLint("SetTextI18n")
-    override fun bind(binding: ItemIbuBinding) {
+    override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit) {
         binding.tvName.text = "Nama : $name"
         binding.tvNIK.text = "NIK : $nik"
         binding.tvAdditional1.text = "No KK : $kk"
         binding.tvAdditional2.text = "Alamat : $address"
+        binding.btnDelete.setOnClickListener { onDelete(this) }
     }
 }
