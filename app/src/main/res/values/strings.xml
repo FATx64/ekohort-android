@@ -107,6 +107,8 @@
     <string name="update">Update</string>
     <string name="wa">WA</string>
     <string name="detail_data_ibu">Detail Data Ibu</string>
+    <string name="tempat_tinggal_sekarang">Tempat Tinggal Sekarang</string>
+    <string name="data_riwayat_kesehatan_detail">Data Riwayat Kesehatan</string>
 
     <string-array name="provinsi_array">
         <item>Aceh</item>
