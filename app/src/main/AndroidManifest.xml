@@ -13,39 +13,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ekohortandroid"
+        android:name=".EkohortApplication"
         tools:targetApi="31">
         <activity
-            android:name=".view.data_pelayanan.ibu.stepperform.DataIbuAwal"
+            android:name=".presentation.nakes.detail.DetailNakesActivity"
             android:exported="false" />
         <activity
-            android:name=".view.data_pelayanan.ibu.stepperform.StepperActivity"
+            android:name=".presentation.nakes.form.DataNakesAwalActivity"
             android:exported="false" />
         <activity
-            android:name=".view.data_pelayanan.ibu.stepperform.StepperFormIbuActivity"
+            android:name=".presentation.nakes.ListNakesActivity"
             android:exported="false" />
         <activity
-            android:name=".view.data_pelayanan.ibu.ListIbuActivity"
+            android:name=".presentation.anak.detail.DetailAnakActivity"
             android:exported="false" />
         <activity
-            android:name=".blog.BlogActivity"
+            android:name=".presentation.anak.form.DataAnakAwalActivity"
             android:exported="false" />
         <activity
-            android:name=".home_page.HomeActivity"
+            android:name=".presentation.anak.ListAnakActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.RegisterActivity"
+            android:name=".presentation.ibu.detail.DetailIbuActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.LoginActivity"
+            android:name=".presentation.ibu.form.DataIbuAwalActivity"
             android:exported="false" />
         <activity
-            android:name=".welcome_screen.OnboardingScreen1"
+            android:name=".presentation.ibu.ListIbuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.blog.BlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.home.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.auth.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.onboarding.OnboardingScreen1"
             android:exported="true" />
         <activity
-            android:name=".welcome_screen.OnboardingScreen2"
+            android:name=".presentation.onboarding.OnboardingScreen2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.main.MainActivity"
+            android:theme="@style/Theme.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

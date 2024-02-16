@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    tools:context=".view.data_pelayanan.ibu.stepperform.DataIbuAwal">
+    tools:context=".presentation.ibu.form.DataIbuAwalActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,7 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/namaIbuTextLayout"
+            android:id="@+id/namaTextLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_nama_ibu">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtNamaIbu"
+                android:id="@+id/edtNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -84,7 +84,7 @@
 
 
         <TextView
-            android:id="@+id/tv_nik"
+            android:id="@+id/tv_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nik"
@@ -92,7 +92,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/namaIbuTextLayout"/>
+            app:layout_constraintTop_toBottomOf="@+id/namaTextLayout"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nikTextLayout"
@@ -105,7 +105,7 @@
             android:hint="@string/nik"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nik">
+            app:layout_constraintTop_toBottomOf="@+id/tv_data">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtnik"
@@ -144,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -194,7 +194,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/tv_provinsi"
+            android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/provinsi"
@@ -208,8 +208,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12sp"
-            android:prompt="@id/tv_provinsi"
-            app:layout_constraintTop_toBottomOf="@id/tv_provinsi"
+            android:prompt="@id/tv_address"
+            app:layout_constraintTop_toBottomOf="@id/tv_address"
             app:layout_constraintBottom_toBottomOf="@id/tv_alamat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -285,7 +285,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -319,7 +319,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -464,7 +464,7 @@
             android:id="@+id/btn_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/submit_data"
+            android:text="@string/save"
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

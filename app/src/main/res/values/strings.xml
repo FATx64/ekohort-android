@@ -46,9 +46,11 @@
     <string name="icon_kader">icon kader</string>
     <string name="icon_ibu">icon ibu</string>
     <string name="data_pelayanan_ibu">Data Pelayanan Ibu</string>
+    <string name="data_pelayanan_anak">Data Pelayanan Anak</string>
     <string name="list_ibu_hamil">List Ibu Hamil</string>
     <string name="tambah_data">+ Tambah Data</string>
     <string name="tambah_data_ibu_baru">Tambah Data Ibu Baru</string>
+    <string name="ubah_data_ibu">Ubah Data Ibu</string>
 
     <!-- resources blog (title, picture, description, date) -->
 
@@ -102,41 +104,70 @@
     <string name="tanggal_kunjungan_berikutnya">Tanggal Kunjungan Berikutnya</string>
     <string name="nomor_hp_wa">Nomor HP/WA</string>
     <string name="submit_data">Submit Data</string>
+    <string name="save">Simpan</string>
+    <string name="detail">Detail</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="wa">WA</string>
+    <string name="detail_data_ibu">Detail Data Ibu</string>
+    <string name="tempat_tinggal_sekarang">Tempat Tinggal Sekarang</string>
+    <string name="data_riwayat_kesehatan_detail">Data Riwayat Kesehatan</string>
+    <string name="data_anak">data anak</string>
+    <string name="nama_anak">Nama anak</string>
+    <string name="tambah_data_anak">Tambah data anak</string>
+    <string name="data_ortu">Data Orang Tua</string>
+    <string name="nama_ayah">Nama ayah</string>
+    <string name="gender">Jenis kelamin</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="ubah_data_anak">Ubah data anak</string>
+    <string name="detail_data_anak">Detail Data Anak</string>
+    <string name="detail_data_nakes">Detail Data Nakes</string>
+    <string name="data_nakes">Data Nakes</string>
+    <string name="nama">Nama</string>
+    <string name="nip">NIP</string>
+    <string name="puskesmas">Puskesmas</string>
+    <string name="role">Jabatan</string>
+    <string name="data_nakes_pada_puskesmas">Data Nakes pada Puskesmas</string>
+    <string name="ubah_data_nakes">Ubah Data Nakes</string>
+    <string name="tambah_data_nakes">Tambah Data Nakes</string>
 
     <string-array name="provinsi_array">
-            <item>Aceh</item>
-            <item>Sumatera Utara</item>
-            <item>Sumatera Barat</item>
-            <item>Riau</item>
-            <item>Jambi</item>
-            <item>Bengkulu</item>
-            <item>Sumatera Selatan</item>
-            <item>Lampung</item>
-            <item>Bangka Belitung</item>
-            <item>Kepulauan Riau</item>
-            <item>DKI Jakarta</item>
-            <item>Jawa Barat</item>
-            <item>Jawa Tengah</item>
-            <item>Jawa Timur</item>
-            <item>Banten</item>
-            <item>Bali</item>
-            <item>Nusa Tenggara Barat</item>
-            <item>Nusa Tenggara Timur</item>
-            <item>Kalimantan Barat</item>
-            <item>Kalimantan Tengah</item>
-            <item>Kalimantan Selatan</item>
-            <item>Kalimantan Timur</item>
-            <item>Kalimantan Utara</item>
-            <item>Sulawesi Utara</item>
-            <item>Sulawesi Tengah</item>
-            <item>Sulawesi Selatan</item>
-            <item>Sulawesi Tenggara</item>
-            <item>Gorontalo</item>
-            <item>Maluku</item>
-            <item>Maluku Utara</item>
-            <item>Papua</item>
-            <item>Papua Barat</item>
-        </string-array>
+        <item>Aceh</item>
+        <item>Sumatera Utara</item>
+        <item>Sumatera Barat</item>
+        <item>Riau</item>
+        <item>Jambi</item>
+        <item>Bengkulu</item>
+        <item>Sumatera Selatan</item>
+        <item>Lampung</item>
+        <item>Bangka Belitung</item>
+        <item>Kepulauan Riau</item>
+        <item>DKI Jakarta</item>
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+        <item>Jawa Timur</item>
+        <item>Banten</item>
+        <item>Bali</item>
+        <item>Nusa Tenggara Barat</item>
+        <item>Nusa Tenggara Timur</item>
+        <item>Kalimantan Barat</item>
+        <item>Kalimantan Tengah</item>
+        <item>Kalimantan Selatan</item>
+        <item>Kalimantan Timur</item>
+        <item>Kalimantan Utara</item>
+        <item>Sulawesi Utara</item>
+        <item>Sulawesi Tengah</item>
+        <item>Sulawesi Selatan</item>
+        <item>Sulawesi Tenggara</item>
+        <item>Gorontalo</item>
+        <item>Maluku</item>
+        <item>Maluku Utara</item>
+        <item>Papua</item>
+        <item>Papua Barat</item>
+    </string-array>
 
-
+    <string-array name="gender">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
 </resources>

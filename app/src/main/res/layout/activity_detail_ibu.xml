@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    tools:context=".presentation.ibu.detail.DetailIbuActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:clipChildren="false">
+
+        <View
+            android:id="@+id/rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="151dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#8840FB"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_edit_24"
+            android:layout_marginTop="16dp"
+            android:id="@+id/btnEdit"
+            app:layout_constraintEnd_toEndOf="@+id/rectangle" app:layout_constraintStart_toEndOf="@+id/avatar"
+            app:layout_constraintTop_toBottomOf="@+id/rectangle" android:contentDescription="edit"/>
+
+        <TextView
+            android:id="@+id/tv_detail_data_ibu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="92dp"
+            android:text="@string/detail_data_ibu"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="121dp"
+            android:layout_height="92dp"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/avatar_circle"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rectangle" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="172dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/nama_ibu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="16dp"
+            tools:text="+621234567"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="316dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contact" />
+
+        <TextView
+            android:id="@+id/tv_data_ibu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/data_ibu"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/tv_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_data_ibu"
+            app:layout_constraintTop_toBottomOf="@+id/tv_data_ibu"
+            tools:text="Nik : 123123123\nJob : Urmom"/>
+
+        <TextView
+            android:id="@+id/tv_tempat_tinggal_sekarang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/tempat_tinggal_sekarang"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_data"
+            app:layout_constraintTop_toBottomOf="@+id/tv_data"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_tempat_tinggal_sekarang"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tempat_tinggal_sekarang"
+            app:layout_goneMarginTop="20dp"
+            tools:text="Provinsi : Selected Item"/>
+
+        <TextView
+            android:id="@+id/tv_additional_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/data_riwayat_kesehatan_detail"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_address"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            app:layout_goneMarginTop="20dp"
+        />
+
+        <TextView
+            android:id="@+id/tv_additional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_additional_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_additional_title"
+            app:layout_goneMarginTop="20dp"
+            tools:text="Tinggi Badan : 69cm"/>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="24dp"
+            android:text="Delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_additional" />
+
+        <Button
+            android:id="@+id/btn_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/wa"
+            app:layout_constraintStart_toEndOf="@id/btn_delete"
+            app:layout_constraintTop_toBottomOf="@id/tv_additional" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
