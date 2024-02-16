@@ -43,7 +43,7 @@ data class Anak(
     }
 
     companion object {
-        const val COLLECTION_NAME = "ibu"
+        const val COLLECTION_NAME = "anak"
         const val LAKI_LAKI = 0
         const val PEREMPUAN = 1
 
