@@ -1,5 +1,8 @@
 package com.example.ekohort_android.presentation
 
+import com.example.ekohort_android.presentation.anak.ListAnakViewModel
+import com.example.ekohort_android.presentation.anak.detail.DetailAnakViewModel
+import com.example.ekohort_android.presentation.anak.form.DataAnakViewModel
 import com.example.ekohort_android.presentation.ibu.ListIbuViewModel
 import com.example.ekohort_android.presentation.ibu.detail.DetailIbuViewModel
 import com.example.ekohort_android.presentation.ibu.form.DataIbuViewModel
@@ -10,4 +13,8 @@ val appModules = module {
     viewModel { params -> DetailIbuViewModel(params.get(), params.get()) }
     viewModel { DataIbuViewModel(get()) }
     viewModel { ListIbuViewModel(get()) }
+
+    viewModel { params -> DetailAnakViewModel(params.get(), params.get()) }
+    viewModel { DataAnakViewModel(get()) }
+    viewModel { ListAnakViewModel(get()) }
 }

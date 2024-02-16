@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginTop="20dp"
-            android:text="List Data Ibu"
+            android:text="List Data"
             android:textColor="@color/white"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_form"
-            android:queryHint="Cari data ibu"
+            android:queryHint="Cari data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rectangle_7" />
 

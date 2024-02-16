@@ -61,7 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/namaIbuTextLayout"
+            android:id="@+id/namaTextLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_nama_ibu">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtNamaIbu"
+                android:id="@+id/edtNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -92,7 +92,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/namaIbuTextLayout"/>
+            app:layout_constraintTop_toBottomOf="@+id/namaTextLayout"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nikTextLayout"

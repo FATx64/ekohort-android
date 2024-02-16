@@ -46,6 +46,7 @@
     <string name="icon_kader">icon kader</string>
     <string name="icon_ibu">icon ibu</string>
     <string name="data_pelayanan_ibu">Data Pelayanan Ibu</string>
+    <string name="data_pelayanan_anak">Data Pelayanan Anak</string>
     <string name="list_ibu_hamil">List Ibu Hamil</string>
     <string name="tambah_data">+ Tambah Data</string>
     <string name="tambah_data_ibu_baru">Tambah Data Ibu Baru</string>
@@ -111,6 +112,15 @@
     <string name="detail_data_ibu">Detail Data Ibu</string>
     <string name="tempat_tinggal_sekarang">Tempat Tinggal Sekarang</string>
     <string name="data_riwayat_kesehatan_detail">Data Riwayat Kesehatan</string>
+    <string name="data_anak">data anak</string>
+    <string name="nama_anak">Nama anak</string>
+    <string name="tambah_data_anak">Tambah data anak</string>
+    <string name="data_ortu">Data Orang Tua</string>
+    <string name="nama_ayah">Nama ayah</string>
+    <string name="gender">Jenis kelamin</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="ubah_data_anak">Ubah data anak</string>
+    <string name="detail_data_anak">Detail Data Anak</string>
 
     <string-array name="provinsi_array">
         <item>Aceh</item>
@@ -145,5 +155,10 @@
         <item>Maluku Utara</item>
         <item>Papua</item>
         <item>Papua Barat</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
     </string-array>
 </resources>

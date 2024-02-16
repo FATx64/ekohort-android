@@ -17,6 +17,7 @@ import com.example.ekohort_android.presentation.blog.BlogAdapter
 import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
 import com.example.ekohort_android.domain.blog.model.BlogModel
+import com.example.ekohort_android.presentation.anak.ListAnakActivity
 import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.utils.DateUtils
 import com.example.ekohort_android.presentation.ibu.ListIbuActivity
@@ -27,8 +28,16 @@ import com.google.firebase.auth.FirebaseAuth
 import org.koin.android.ext.android.inject
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
+    private val googleSigningClient: GoogleSignInClient by lazy {
+        val gso = GoogleSignInOptions
+            .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
 
-    private lateinit var googleSigningClient: GoogleSignInClient
+        GoogleSignIn.getClient(this, gso)
+    }
+
     private val auth: FirebaseAuth by inject()
 
     private val dateUtils = DateUtils()
@@ -60,16 +69,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     }
 
     private fun loginWithGoogle(){
-        val gso = GoogleSignInOptions
-            .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("550281026161-ld1lg5ajcd8pjq1t863ue13p11tdrep1.apps.googleusercontent.com")
-            .requestEmail()
-            .build()
-
-        googleSigningClient = GoogleSignIn.getClient(this, gso)
-
-        googleSigningClient
-
         val textView = findViewById<TextView>(R.id.name)
 
         val user = auth.currentUser
@@ -85,13 +84,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     //daftar menu yang di card
     private fun menuOnCard(){
-
-        val icDataIbu = binding.layoutMenu.icIbu
-        icDataIbu.setOnClickListener {
-            val intent = Intent(this, ListIbuActivity::class.java)
-            startActivity(intent)
+        binding.layoutMenu.apply {
+            icAnak.setOnClickListener {
+                val intent = Intent(this@HomeActivity, ListAnakActivity::class.java)
+                startActivity(intent)
+            }
+            icIbu.setOnClickListener {
+                val intent = Intent(this@HomeActivity, ListIbuActivity::class.java)
+                startActivity(intent)
+            }
         }
-
     }
 
     private fun carouselAdapter(){

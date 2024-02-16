@@ -16,6 +16,15 @@
         android:name=".EkohortApplication"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.anak.detail.DetailAnakActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.anak.form.DataAnakAwalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.anak.ListAnakActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ibu.detail.DetailIbuActivity"
             android:exported="false" />
         <activity
