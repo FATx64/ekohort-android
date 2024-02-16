@@ -21,6 +21,7 @@ import com.example.ekohort_android.presentation.anak.ListAnakActivity
 import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.utils.DateUtils
 import com.example.ekohort_android.presentation.ibu.ListIbuActivity
+import com.example.ekohort_android.presentation.nakes.ListNakesActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -91,6 +92,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             }
             icIbu.setOnClickListener {
                 val intent = Intent(this@HomeActivity, ListIbuActivity::class.java)
+                startActivity(intent)
+            }
+            icKader.setOnClickListener {
+                val intent = Intent(this@HomeActivity, ListNakesActivity::class.java)
                 startActivity(intent)
             }
         }

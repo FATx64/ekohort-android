@@ -121,6 +121,15 @@
     <string name="keterangan">Keterangan</string>
     <string name="ubah_data_anak">Ubah data anak</string>
     <string name="detail_data_anak">Detail Data Anak</string>
+    <string name="detail_data_nakes">Detail Data Nakes</string>
+    <string name="data_nakes">Data Nakes</string>
+    <string name="nama">Nama</string>
+    <string name="nip">NIP</string>
+    <string name="puskesmas">Puskesmas</string>
+    <string name="role">Jabatan</string>
+    <string name="data_nakes_pada_puskesmas">Data Nakes pada Puskesmas</string>
+    <string name="ubah_data_nakes">Ubah Data Nakes</string>
+    <string name="tambah_data_nakes">Tambah Data Nakes</string>
 
     <string-array name="provinsi_array">
         <item>Aceh</item>
