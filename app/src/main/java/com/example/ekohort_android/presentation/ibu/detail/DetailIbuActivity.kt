@@ -34,8 +34,6 @@ class DetailIbuActivity : BaseActivity<ActivityDetailIbuBinding>() {
         binding = ActivityDetailIbuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.state
-
         binding.apply {
             setup(currentData!!)
 

@@ -10,22 +10,21 @@ import java.util.*
 
 @Parcelize
 data class Ibu(
-    val name: String,
-    val nik: Long,
-    val kk: Long,
-    val birthday: Date,
-    val province: String,
-    val address: String,
-    val height: Int,
-    val weight: Int,
-    val diagnose: String,
-    val visitDate: Date,
-    val nextVisit: Date,
-    val phoneNumber: String,
+    val name: String = "",
+    val nik: Long = 0L,
+    val kk: Long = 0L,
+    val birthday: Date = Date(),
+    val province: String = "",
+    val address: String = "",
+    val height: Int = 0,
+    val weight: Int = 0,
+    val diagnose: String = "",
+    val visitDate: Date = Date(),
+    val nextVisit: Date = Date(),
+    val phoneNumber: String = "",
     @DocumentId
     val id: String = "",
 ) : AdapterModel<Ibu>(), Parcelable {
-    constructor() : this("", 0L, 0L, Date(), "", "", 0, 0, "", Date(), Date(), "", "")
 
     @SuppressLint("SetTextI18n")
     override fun bind(binding: ItemIbuBinding, onDelete: (data: Ibu) -> Unit, onUpdate: (data: Ibu) -> Unit, onOpen: (data: Ibu) -> Unit) {
