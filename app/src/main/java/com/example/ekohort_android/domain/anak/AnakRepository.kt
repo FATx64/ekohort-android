@@ -7,7 +7,7 @@ interface AnakRepository {
     suspend fun getAnakById(id: String): Anak?
     fun getAnakByIdAsFlow(id: String): Flow<Anak?>
     suspend fun getAllAnak(): List<Anak>
-    fun getAllAnakAsFlow(): Flow<List<Anak>>
+    fun getAllAnakAsFlow(searchQuery: String = ""): Flow<List<Anak>>
     suspend fun insert(data: Anak)
     suspend fun delete(id: String)
     suspend fun update(id: String, data: Anak)

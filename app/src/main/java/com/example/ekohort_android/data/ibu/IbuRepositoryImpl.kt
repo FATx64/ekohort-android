@@ -2,6 +2,7 @@ package com.example.ekohort_android.data.ibu
 
 import com.example.ekohort_android.domain.ibu.IbuRepository
 import com.example.ekohort_android.domain.ibu.model.Ibu
+import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.snapshots
@@ -30,8 +31,37 @@ class IbuRepositoryImpl(
         return db.collection(Ibu.COLLECTION_NAME).get().await().map { it.toObject() }
     }
     
-    override fun getAllIbuAsFlow(): Flow<List<Ibu>> {
-        return db.collection(Ibu.COLLECTION_NAME).snapshots().map(QuerySnapshot::toObjects)
+    override fun getAllIbuAsFlow(searchQuery: String): Flow<List<Ibu>> {
+        return db.collection(Ibu.COLLECTION_NAME)
+            .where(
+                Filter.or(
+                    Filter.and(
+                        Filter.greaterThanOrEqualTo("name", searchQuery),
+                        Filter.lessThanOrEqualTo("name", searchQuery + "\uf8ff")
+                    ),
+                    Filter.and(
+                        Filter.greaterThanOrEqualTo(
+                            "name",
+                            if (searchQuery.isNotEmpty()) searchQuery[0].uppercase() +
+                                    (if (searchQuery.length >= 2) searchQuery.substring(1) else "")
+                            else ""
+                        ),
+                        Filter.lessThanOrEqualTo(
+                            "name",
+                            (if (searchQuery.isNotEmpty()) searchQuery[0].uppercase() +
+                                    (if (searchQuery.length >= 2) searchQuery.substring(1) else "")
+                            else "")
+                                    + "\uf8ff"
+                        )
+                    ),
+                    Filter.and(
+                        Filter.greaterThanOrEqualTo("name", searchQuery.uppercase()),
+                        Filter.lessThanOrEqualTo("name", searchQuery.uppercase() + "\uf8ff")
+                    ),
+                )
+            )
+            .snapshots()
+            .map(QuerySnapshot::toObjects)
     }
 
     override suspend fun insert(data: Ibu) {

@@ -2,6 +2,7 @@ package com.example.ekohort_android.data.nakes
 
 import com.example.ekohort_android.domain.nakes.NakesRepository
 import com.example.ekohort_android.domain.nakes.model.Nakes
+import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.snapshots
@@ -30,8 +31,37 @@ class NakesRepositoryImpl(
         return db.collection(Nakes.COLLECTION_NAME).get().await().map { it.toObject() }
     }
     
-    override fun getAllNakesAsFlow(): Flow<List<Nakes>> {
-        return db.collection(Nakes.COLLECTION_NAME).snapshots().map(QuerySnapshot::toObjects)
+    override fun getAllNakesAsFlow(searchQuery: String): Flow<List<Nakes>> {
+        return db.collection(Nakes.COLLECTION_NAME)
+            .where(
+                Filter.or(
+                    Filter.and(
+                        Filter.greaterThanOrEqualTo("name", searchQuery),
+                        Filter.lessThanOrEqualTo("name", searchQuery + "\uf8ff")
+                    ),
+                    Filter.and(
+                        Filter.greaterThanOrEqualTo(
+                            "name",
+                            if (searchQuery.isNotEmpty()) searchQuery[0].uppercase() +
+                                    (if (searchQuery.length >= 2) searchQuery.substring(1) else "")
+                            else ""
+                        ),
+                        Filter.lessThanOrEqualTo(
+                            "name",
+                            (if (searchQuery.isNotEmpty()) searchQuery[0].uppercase() +
+                                    (if (searchQuery.length >= 2) searchQuery.substring(1) else "")
+                            else "")
+                                    + "\uf8ff"
+                        )
+                    ),
+                    Filter.and(
+                        Filter.greaterThanOrEqualTo("name", searchQuery.uppercase()),
+                        Filter.lessThanOrEqualTo("name", searchQuery.uppercase() + "\uf8ff")
+                    ),
+                )
+            )
+            .snapshots()
+            .map(QuerySnapshot::toObjects)
     }
 
     override suspend fun insert(data: Nakes) {
