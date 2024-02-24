@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ekohort_android.R
+import com.example.ekohort_android.domain.carousel.model.Carousel
 
 
-class CarouselAdapter(private val carouselDataList: ArrayList<String>) : RecyclerView.Adapter<CarouselAdapter.CarouselItemViewHolder>() {
+class CarouselAdapter(private var carouselDataList: List<String>) : RecyclerView.Adapter<CarouselAdapter.CarouselItemViewHolder>() {
 
     class CarouselItemViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -25,6 +26,14 @@ class CarouselAdapter(private val carouselDataList: ArrayList<String>) : Recycle
 
     override fun getItemCount(): Int {
         return carouselDataList.size
+    }
 
+    fun submitData(data: Carousel) {
+        this.carouselDataList = listOf(
+            "Data ibu : ${data.ibu}",
+            "Data anak : ${data.anak}",
+            "Data nakes: ${data.nakes}"
+        )
+        notifyDataSetChanged()
     }
 }
