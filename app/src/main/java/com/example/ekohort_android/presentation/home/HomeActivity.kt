@@ -6,6 +6,9 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
 import android.widget.TextView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +20,7 @@ import com.example.ekohort_android.presentation.blog.BlogAdapter
 import com.example.ekohort_android.presentation.auth.LoginActivity
 import com.example.ekohort_android.databinding.ActivityHomeBinding
 import com.example.ekohort_android.domain.blog.model.BlogModel
+import com.example.ekohort_android.domain.carousel.model.Carousel
 import com.example.ekohort_android.presentation.anak.ListAnakActivity
 import com.example.ekohort_android.presentation.base.BaseActivity
 import com.example.ekohort_android.utils.DateUtils
@@ -26,9 +30,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
+    private val viewModel: HomeViewModel by viewModel()
     private val googleSigningClient: GoogleSignInClient by lazy {
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -45,6 +52,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     private val list = ArrayList<BlogModel>()
 
+    private val adapter: CarouselAdapter by lazy {
+        CarouselAdapter(listOf())
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +71,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
         loginWithGoogle()
         showUserName()
+        viewModel.fetchCounts()
         carouselAdapter()
         menuOnCard()
+
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.carouselState.collect {
+                        adapter.submitData(it)
+                    }
+                }
+            }
+        }
 
         binding.rvBlog.setHasFixedSize(true)
         binding.rvBlog.showRecyclerList()
@@ -101,8 +123,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         }
     }
 
-    private fun carouselAdapter(){
-        val viewPager = findViewById<ViewPager2>(R.id.viewPager2)
+    private fun carouselAdapter() {
+        val viewPager = binding.viewPager2
 
         viewPager.apply {
             clipChildren = false
@@ -111,12 +133,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
 
-        val demoData = arrayListOf(
-            "Data ibu : Jumlah Data",
-            "Data anak : Jumlah data",
-            "Data lansia: Jumlah Data"
-        )
-        viewPager.adapter = CarouselAdapter(demoData)
+        viewPager.adapter = adapter
+        adapter.submitData(Carousel())
 
         val compositePageTransformer = CompositePageTransformer()
         compositePageTransformer.addTransformer(MarginPageTransformer((40 * Resources.getSystem().displayMetrics.density).toInt()))

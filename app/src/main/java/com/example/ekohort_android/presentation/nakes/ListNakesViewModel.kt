@@ -5,13 +5,16 @@ import androidx.lifecycle.viewModelScope
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.nakes.NakesRepository
 import com.example.ekohort_android.domain.nakes.model.Nakes
+import com.example.ekohort_android.presentation.base.BaseListViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.cancellable
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ListNakesViewModel(private val repository: NakesRepository) : ViewModel() {
+class ListNakesViewModel(private val repository: NakesRepository) : BaseListViewModel() {
     private val _data: MutableStateFlow<Result<List<Nakes>>> = MutableStateFlow(Result.Idle())
     val data: StateFlow<Result<List<Nakes>>> = _data
 
@@ -19,11 +22,21 @@ class ListNakesViewModel(private val repository: NakesRepository) : ViewModel() 
     val manipState: StateFlow<Result<Unit>> = _manipState
 
     init {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                repository.getAllNakesAsFlow().collect {
-                    _data.emit(Result.Success(it))
-                }
+        subscribe()
+
+        viewModelScope.launch(Dispatchers.IO) {
+            searchState.collectLatest {
+                unsubscribe()
+                subscribe()
+            }
+        }
+    }
+
+    override fun subscribe() {
+        if (job != null) return
+        job = viewModelScope.launch(Dispatchers.IO) {
+            repository.getAllNakesAsFlow(searchState.value).cancellable().collect {
+                _data.emit(Result.Success(it))
             }
         }
     }

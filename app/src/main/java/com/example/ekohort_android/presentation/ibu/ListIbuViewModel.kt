@@ -1,17 +1,18 @@
 package com.example.ekohort_android.presentation.ibu
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ekohort_android.domain.ibu.model.Ibu
-import kotlinx.coroutines.flow.MutableStateFlow
 import com.example.ekohort_android.domain.Result
 import com.example.ekohort_android.domain.ibu.IbuRepository
+import com.example.ekohort_android.domain.ibu.model.Ibu
+import com.example.ekohort_android.presentation.base.BaseListViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.cancellable
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class ListIbuViewModel(private val repository: IbuRepository) : ViewModel() {
+class ListIbuViewModel(private val repository: IbuRepository) : BaseListViewModel() {
     private val _data: MutableStateFlow<Result<List<Ibu>>> = MutableStateFlow(Result.Idle())
     val data: StateFlow<Result<List<Ibu>>> = _data
 
@@ -19,11 +20,21 @@ class ListIbuViewModel(private val repository: IbuRepository) : ViewModel() {
     val manipState: StateFlow<Result<Unit>> = _manipState
 
     init {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                repository.getAllIbuAsFlow().collect {
-                    _data.emit(Result.Success(it))
-                }
+        subscribe()
+
+        viewModelScope.launch(Dispatchers.IO) {
+            searchState.collectLatest {
+                unsubscribe()
+                subscribe()
+            }
+        }
+    }
+
+    override fun subscribe() {
+        if (job != null) return
+        job = viewModelScope.launch(Dispatchers.IO) {
+            repository.getAllIbuAsFlow(searchState.value).cancellable().collect {
+                _data.emit(Result.Success(it))
             }
         }
     }
