@@ -30,8 +30,8 @@ class CarouselAdapter(private var carouselDataList: List<String>) : RecyclerView
 
     fun submitData(data: Carousel) {
         this.carouselDataList = listOf(
-            "Data anak : ${data.ibu}",
-            "Data ibu : ${data.anak}",
+            "Data ibu : ${data.ibu}",
+            "Data anak : ${data.anak}",
             "Data nakes: ${data.nakes}"
         )
         notifyDataSetChanged()
