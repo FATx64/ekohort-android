@@ -3,6 +3,10 @@ package com.example.ekohort_android.presentation.ibu
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -88,6 +92,31 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
             btnAddData.setOnClickListener {
                 val intent = Intent(this@ListIbuActivity, DataIbuAwalActivity::class.java)
                 startActivity(intent)
+            }
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    viewModel.search(query.orEmpty())
+                    return false
+                }
+
+                override fun onQueryTextChange(query: String?): Boolean {
+                    return false
+                }
+            })
+
+            val closeBtn: View = searchView.findViewById(androidx.appcompat.R.id.search_close_btn)
+            closeBtn.setOnClickListener {
+                searchView.setQuery("", false)
+                searchView.isIconified = true
+            }
+
+            val searchPlate: EditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text)
+            searchPlate.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    viewModel.search(searchView.query.toString())
+                }
+                false
             }
         }
     }
