@@ -75,6 +75,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         carouselAdapter()
         menuOnCard()
 
+
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -122,6 +123,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             }
         }
     }
+
 
     private fun carouselAdapter() {
         val viewPager = binding.viewPager2
