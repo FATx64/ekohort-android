@@ -14,13 +14,49 @@
         android:clipChildren="false">
 
         <ImageView
+            android:id="@+id/img_blog"
             android:layout_width="398dp"
             android:layout_height="212dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/blog1"
+            android:src="@drawable/blog1mini"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleBlog1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/img_blog"
+            android:text="Tips menjaga kesehatan ibu"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingStart="12dp"
+            android:paddingTop="20dp"/>
+
+        <TextView
+            android:id="@+id/dateBlogText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17/desember/2022"
+            app:layout_constraintTop_toBottomOf="@id/titleBlog1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="12dp"
+            android:paddingTop="20dp"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/descriptionBlog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_blog1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateBlogText"
+            android:paddingTop="12dp"
+            android:layout_marginStart="12dp"
+
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
