@@ -30,7 +30,7 @@ class ListIbuActivity : BaseActivity<ActivityListIbuBinding>() {
     private val adapter by lazy {
         ListIbuAdapter<Ibu, Ibu>({
             MaterialAlertDialogBuilder(this@ListIbuActivity)
-                .setMessage("Are you sure?")
+                .setMessage("Apakah anda ingin menghapus data?")
                 .setPositiveButton(android.R.string.ok) {_, _ ->
                     viewModel.delete(it)
                 }

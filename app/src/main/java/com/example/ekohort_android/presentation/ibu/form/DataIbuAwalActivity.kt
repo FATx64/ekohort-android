@@ -73,7 +73,6 @@ class DataIbuAwalActivity : BaseActivity<ActivityDataIbuAwalBinding>() {
                             phoneNumber = binding.edtWa.text.toString()
                         )
                         if (currentData == null) viewModel.insert(ibu) else viewModel.update(currentData!!.id, ibu)
-                        // Optimistic approach, cuz I can't be bothered to do something else
                         finish()
                     }
                     .setNegativeButton("Kembali", null)

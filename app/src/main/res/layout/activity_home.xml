@@ -80,12 +80,12 @@
             android:id="@+id/viewPager2"
             android:layout_width="280dp"
             android:layout_height="280dp"
-            android:layout_marginTop="456dp"
+            android:layout_marginTop="12dp"
             android:paddingTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/layout_menu" />
+            app:layout_constraintTop_toBottomOf="@+id/layout_menu" />
 
         <TextView
             android:id="@+id/tv_artikel"

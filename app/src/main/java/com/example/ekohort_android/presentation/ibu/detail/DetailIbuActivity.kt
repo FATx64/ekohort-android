@@ -86,7 +86,6 @@ class DetailIbuActivity : BaseActivity<ActivityDetailIbuBinding>() {
             }
             btnDelete.setOnClickListener {
                 viewModel.delete(data)
-                // Optimistic!!!!
                 finish()
             }
         }

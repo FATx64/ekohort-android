@@ -32,7 +32,7 @@ class ListNakesActivity : BaseActivity<ActivityListIbuBinding>() {
     private val adapter by lazy {
         ListIbuAdapter<Nakes, Nakes>({
             MaterialAlertDialogBuilder(this@ListNakesActivity)
-                .setMessage("Are you sure?")
+                .setMessage("Apakah anda ingin menghapus data?")
                 .setPositiveButton(android.R.string.ok) { _, _ ->
                     viewModel.delete(it)
                 }
