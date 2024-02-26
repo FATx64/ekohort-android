@@ -71,10 +71,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
         loginWithGoogle()
         showUserName()
-        viewModel.fetchCounts()
         carouselAdapter()
         menuOnCard()
-
 
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -89,7 +87,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         binding.rvBlog.setHasFixedSize(true)
         binding.rvBlog.showRecyclerList()
         list.addAll(blogList)
+    }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.fetchCounts()
     }
 
     private fun loginWithGoogle(){

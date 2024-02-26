@@ -16,8 +16,8 @@ class HomeViewModel(private val repository: CarouselRepository) : ViewModel() {
     fun fetchCounts() {
         viewModelScope.launch(Dispatchers.IO) {
             _carouselState.value = Carousel(
-                repository.getAnakCount(),
                 repository.getIbuCount(),
+                repository.getAnakCount(),
                 repository.getNakesCount()
             )
         }
