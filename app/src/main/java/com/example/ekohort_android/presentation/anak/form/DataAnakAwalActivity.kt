@@ -60,7 +60,7 @@ class DataAnakAwalActivity : BaseActivity<ActivityDataAnakAwalBinding>() {
             edtTanggalKunjunganBerikutnya.setOnClickListener { it.showDatePickerDialog(this@DataAnakAwalActivity) }
             btnSubmit.setOnClickListener {
                 MaterialAlertDialogBuilder(this@DataAnakAwalActivity)
-                    .setTitle("Simpan Data Ibu?")
+                    .setTitle("Simpan Data Anak?")
                     .setMessage("Pastikan semua data sudah benar sebelum disimpan")
                     .setPositiveButton(R.string.save) { _, _ ->
                         val data = Anak(

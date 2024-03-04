@@ -49,7 +49,7 @@ class DataNakesAwalActivity : BaseActivity<ActivityDataNakesAwalBinding>() {
             edtDoB.setOnClickListener { it.showDatePickerDialog(this@DataNakesAwalActivity) }
             btnSubmit.setOnClickListener {
                 MaterialAlertDialogBuilder(this@DataNakesAwalActivity)
-                    .setTitle("Simpan Data Ibu?")
+                    .setTitle("Simpan Data Nakes?")
                     .setMessage("Pastikan semua data sudah benar sebelum disimpan")
                     .setPositiveButton(R.string.save) { _, _ ->
                         val data = Nakes(
